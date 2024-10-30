@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About us</title>
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Про нас</h1>
+
+
+    <nav class="navbar">
+      <ol class="navbar-list">
+        <li class="navbar-item">
+          <a class="navbar-link" href="../index.html">Головна</a>
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-link" href="gallery.html">Галерея</a>
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-link" href="catalog.html">Каталог</a>
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-link" href="contacts.html">Контакти</a>
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-link" href="articles.html">Статті</a>
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-link" href="regisration.html">Реєстрація</a>
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-link" href="navigation.html">Навігація</a>
+        </li>
+      </ol>
+    </nav>
+
+
+    <form class="form" action="https://tests.fomenko.top/echo/index.php" method="get" class="regisration">
+      <fieldset>
+        <legend>Особисті дані</legend>
+
+        <div>
+          <label for="name">Прізвище та ім'я</label>
+          <input id="name" name="name" placeholder="Ваше ім'я" required>
+        </div>
+
+        <div>
+          <label for="email">Емейл</label>
+          <input id="email" name="email" type="email" placeholder="Емейл" required>
+        </div>
+
+        <div>
+          <label for="password">Пароль</label>
+          <input id="password" name="password" type="password" placeholder="Пароль" required>
+        </div>
+
+        <div>
+          <label for="file">Додати фото</label>
+          <input type="file" name="image" id="file" accept="image/*">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Контактна інформація</legend>
+
+        <div>
+          <label for="address">Адреса сайту</label>
+          <input type="url" name="address" id="address" value="https://mysite.name" required>
+        </div>
+
+        <div>
+          <label for="gender">Стать</label>
+          <select name="gender" id="gender" required>
+            <option value="" selected disabled>Оберіть стать</option>
+            <option value="women">Жіноча</option>
+            <option value="man">Чоловіча</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="date">Дата народження</label>
+          <input type="date" name="date" id="date" required>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Кулінарні вподобання</legend>
+
+        <div>
+          <label for="kitchen">Вибрати кухню</label>
+          <select name="type_kitchen" id="kitchen" multiple>
+            <option disabled value="">Оберіть один або декілька варіантів</option>
+            <option value="european">Європейська</option>
+            <option value="asian">Азіатська</option>
+            <option value="italian">Італійська</option>
+            <option value="indian">Індійська</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Додаткова інформація</legend>
+
+        <div>
+          <label for="description">Про себе</label>
+          <textarea name="description" id="description" placeholder="Напишіть про себе" rows="4"></textarea>
+        </div>
+      </fieldset>
+
+
+      <div class="buttons">
+        <button class="send" type="submit">Зареєструватися</button>
+        <button class="send" type="reset">Очистити форму</button>
+      </div>
+
+    </form>
+
+    <footer>
+      &copy;Kateryna Demydova
+    </footer>
+  </div>
+</body>
+
+</html>
