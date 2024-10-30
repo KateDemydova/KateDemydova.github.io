@@ -1,11 +1,11 @@
 /*11*/
 body .name {
-  background-color: blue;
+  background-color: rgb(42, 221, 36);
 }
 
 /*21*/
 div .class[id="main"] {
-  background-color: chartreuse;
+  background-color: rgb(122, 44, 44);
 }
 
 /*1*/
