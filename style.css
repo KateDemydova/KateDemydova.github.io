@@ -1,0 +1,60 @@
+/*11*/
+body .name {
+  background-color: rgb(42, 221, 36);
+}
+
+/*21*/
+div .class[id="main"] {
+  background-color: rgb(122, 44, 44);
+}
+
+/*1*/
+li {
+  background-color: aqua;
+}
+
+/*10*/
+.salad {
+  background-color: blue;
+}
+
+/*100*/
+#dessert {
+  background-color: brown;
+}
+
+/*11*/
+a[href] {
+  background-color: chartreuse;
+}
+
+/*2*/
+li b {
+  color: darkgray;
+}
+
+/*2*/
+li>p {
+  color: indigo;
+}
+
+/*33*/
+ul li.dough[id="bake"] a[title] {
+  background-color: hotpink;
+}
+
+/*23*/
+ul li.made_home[id="eat_at_home"] b {
+  background-color: maroon;
+}
+
+/*14*/
+ul li p.beautiful~a {
+  background-color: magenta;
+}
+
+
+/*23*/
+ul [id="tasty"] p i a[title] {
+  background-color: chocolate;
+}
