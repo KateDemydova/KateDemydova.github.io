@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+}
+
+
+table {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 100vh;
+  border: 5px solid black;
+  border-collapse: collapse;
+}
+
+.inside {
+  border: 3px solid black;
+}
+
+
+td {
+  border-left: 7px solid black;
+  border: 3px solid black;
+}
+
+.class1 {
+  border-top: 5px solid black;
+  border-bottom: 8px solid black;
+}
+
+.class1 :first-child {
+  width: 20%;
+  height: 10vh;
+}
+
+.class1 :nth-child(2) {
+  width: 40%;
+  height: 10vh;
+}
+
+.class1 :nth-child(3) {
+  background-color: yellow;
+  width: 35%;
+  height: 10vh;
+}
+
+.class1 :last-child {
+  border-right: 5px solid black;
+  width: 5%;
+
+}
+
+.class2 {
+  border-top: 5px solid black;
+  border-bottom: 7px solid black;
+}
+
+.class2 :first-child {
+  width: 10%;
+  height: 45vh;
+}
+
+.class2 :last-child {
+  background-color: yellow;
+  height: 45vh;
+}
+
+.class2 :nth-child(2) {
+  background-color: red;
+  width: 50%;
+  height: 70vh;
+}
+
+.class3 :first-child {
+  width: 10%;
+  height: 45vh;
+}
+
+.class5 :first-child {
+  background-color: yellow;
+  width: 10%;
+  height: 25vh;
+}
+
+.class4 :first-child {
+  background-color: black;
+  width: 25%;
+  height: 35vh;
+}
+
+.class4 :nth-child(2) {
+  height: 17vh;
+}
+
+.class4 :nth-child(3) {
+  height: 17vh;
+}
+
+.class5 :nth-child(2) {
+  height: 17vh;
+}
+
+.class5 :nth-child(3) {
+  background-color: blue;
+  height: 20vh;
+}
+
+
+.class5 :last-child {
+  height: 25vh;
+}
+
+.class6 :first-child {
+  height: 12vh;
+}
+
+.class6 :last-child {
+  background-color: black;
+  height: 7vh;
+}
+
+.class7 {
+  height: 5vh;
+}
+
+tr~tr {
+  border-top: 8px solid black;
+}
+
+td {
+  border-right: 8px solid black;
+}
+
+.class5 :last-child {
+  background-color: red;
+  border-right: 5px solid black;
+  width: 5%;
+}
