@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+ul {
+  margin: 0;
+  color: black;
+  font-size: 16px;
+  text-align: left;
+}
+
+h1 {
+  margin: 20px;
+  display: inline;
+}
+
+.block {
+  border: 2px solid black;
+}
+
+.block2 {
+
+  margin: 20px;
+  background-color: blue;
+  width: 200px;
+  display: block;
+  overflow: visible;
+}
+
+.block3 {
+  margin: 20px;
+  background-color: magenta;
+  display: block;
+  overflow: auto;
+  width: 500px;
+}
+
+
+.block4 {
+  width: 900px;
+  margin: 20px;
+}
+
+.block5 p {
+
+  background-color: green;
+  margin: 20px;
+  display: block;
+  overflow: auto;
+
+}
+
+.first {
+  width: 800px;
+}
+
+
+.third {
+  width: 400px;
+  overflow: hidden;
+}
+
+.clear {
+  clear: both;
+}
+
+.fourth {
+  width: 400px;
+  overflow: inherit;
+}
