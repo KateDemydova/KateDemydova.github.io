@@ -4,56 +4,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link rel="stylesheet" href="style/style.css">
+  <title>Page</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style/slyle.css">
 </head>
 
 <body>
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">Page</a></li>
+      <li><a href="pages/overflow.html">Overflow</a></li>
+      <li><a href="pages/position.html">Position</a></li>
+      <li><a href="pages/position.html">Display</a></li>
+      <li><a href="pages/float.html">Float</a></li>
+      <li><a href="pages/normalize.html">Normalize</a></li>
+      <li><a href="pages/reset.html">Reset</a></li>
+      <li><a href="pages/construction.html">Construction</a></li>
+    </ul>
+  </nav>
 
-  <div class="container">
-    <h1>Чай вважається найпопулярнішим напоєм у світі</h1>
+  <div>
+    <p>Домашнє завдання з блокової моделі. Виконано на окремих сторінках для кращого розуміння роботи функцій overflow,
+      position, display, float. Також створені окремі сторінки для вивчення різниці normalize тa reset, так описом
+      відмінностей на цих сторінках. Окремою сторінкою додан конструктор з блоків з використанням вивченних функцій.</p>
 
-    <nav class="navbar">
-      <ol class="navbar-list">
-        <li class="navbar-item">
-          <a class="navbar-link" href="index.html">Головна</a>
-        </li>
-        <li class="navbar-item">
-          <a class="navbar-link" href="pages/gallery.html">Галерея</a>
-        </li>
-        <li class="navbar-item">
-          <a class="navbar-link" href="pages/catalog.html">Каталог</a>
-        </li>
-        <li class="navbar-item">
-          <a class="navbar-link" href="pages/contacts.html">Контакти</a>
-        </li>
-        <li class="navbar-item">
-          <a class="navbar-link" href="pages/articles.html">Статті</a>
-        </li>
-        <li class="navbar-item">
-          <a class="navbar-link" href="pages/regisration.html">Реєстрація</a>
-        </li>
-        <li class="navbar-item">
-          <a class="navbar-link" href="pages/navigation.html">Навігація</a>
-        </li>
-      </ol>
-    </nav>
-
-    <div>
-      <h2>В нас найкращі сорти чаю</h2>
-      <a href="pages/articles.html">Види чаю</a>
-    </div>
-
-    <div>
-      <h2>Завітайте до нас</h2>
-      <a href="pages/contacts.html">Наші контакти</a>
-    </div>
-
-    <footer>
-      &copy;Kateryna Demydova
-    </footer>
+    <p>
+      Також на сторінці position використовувалися функції fixed та sticky. Функція fixed залишає блок на конкретному
+      місці на сторінці, поверх інших блоків (якщо не встановлено додаткових функції), навіть при прокручуванні. Функція
+      sticky ніби прилипає до блоку (як до стелі) і при прокручуванні, досягаючи top (встановлено 0), прилипає до
+      вверхньої частини сторінки.
+    </p>
   </div>
-
 </body>
 
 </html>
