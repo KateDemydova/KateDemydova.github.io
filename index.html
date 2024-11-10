@@ -6,35 +6,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page</title>
   <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="style/slyle.css">
+  <link rel="stylesheet" href="slyle.css">
 </head>
 
 <body>
-  <nav class="menu">
-    <ul>
-      <li><a href="index.html">Page</a></li>
-      <li><a href="pages/overflow.html">Overflow</a></li>
-      <li><a href="pages/position.html">Position</a></li>
-      <li><a href="pages/position.html">Display</a></li>
-      <li><a href="pages/float.html">Float</a></li>
-      <li><a href="pages/normalize.html">Normalize</a></li>
-      <li><a href="pages/reset.html">Reset</a></li>
-      <li><a href="pages/construction.html">Construction</a></li>
-    </ul>
-  </nav>
-
-  <div>
-    <p>Домашнє завдання з блокової моделі. Виконано на окремих сторінках для кращого розуміння роботи функцій overflow,
-      position, display, float. Також створені окремі сторінки для вивчення різниці normalize тa reset, так описом
-      відмінностей на цих сторінках. Окремою сторінкою додан конструктор з блоків з використанням вивченних функцій.</p>
-
-    <p>
-      Також на сторінці position використовувалися функції fixed та sticky. Функція fixed залишає блок на конкретному
-      місці на сторінці, поверх інших блоків (якщо не встановлено додаткових функції), навіть при прокручуванні. Функція
-      sticky ніби прилипає до блоку (як до стелі) і при прокручуванні, досягаючи top (встановлено 0), прилипає до
-      вверхньої частини сторінки.
-    </p>
+  <div class="block1">
+    <div class="block1 block1_left"></div>
+    <div class="block1 block1_right"></div>
   </div>
+  <div class="clear"></div>
+
+  <div class="block2">
+    <div class="block2 block2_left"></div>
+    <div class="block2 block2_right">
+      <div class="block2 block2_right--1"></div>
+      <div class="block2 block2_right--2">
+        <div class="block2 block2_right--2__left"></div>
+        <div class="block2 block2_right--2__right"></div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+
+  <div class="block3">
+    <div class="block3 block3_left">
+      <div class="block3 block3_left--1"></div>
+      <div class="block3 block3_left--2"></div>
+    </div>
+    <div class="block3 block3_right">
+      <div class="block3 block3_right--1"></div>
+      <div class="block3 block3_right--2"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+
+  <div class="block4">
+    <div class="block4 block4_right">
+      <div class="block4 block4_right--lg"></div>
+      <div class="block4 block4_right--sm">
+        <div class="block4 block4_right--sm1"></div>
+        <div class="block4 block4_right--sm2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+
+  <div class="block5">
+    <div class="block5 block5_center">
+      <div class="block5 block5_center--lg"></div>
+      <div class="block5 block5_center--sm">
+        <div class="block5 block5_center--sm1"></div>
+        <div class="block5 block5_center--sm2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+
 </body>
 
 </html>
