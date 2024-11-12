@@ -1,5 +1,5 @@
 * {
-  border: 1px solid gainsboro;
+  border: 1px solid gray;
 }
 
 .block1 {
@@ -7,8 +7,8 @@
   height: 80px;
 }
 
-.block1_left {
-  background-color: gainsboro;
+.block1__left {
+  background-color: gray;
   width: 200px;
   height: 50px;
   float: left;
@@ -17,8 +17,8 @@
   margin-left: 20px;
 }
 
-.block1_right {
-  background-color: gainsboro;
+.block1__right {
+  background-color: gray;
   float: right;
   width: 200px;
   height: 50px;
@@ -33,8 +33,8 @@
 }
 
 
-.block2_left {
-  background-color: gainsboro;
+.block2__left {
+  background-color: gray;
   width: 200px;
   height: 50px;
   float: left;
@@ -43,7 +43,7 @@
   margin-left: 20px;
 }
 
-.block2_right {
+.block2__right {
   width: 640px;
   height: 50px;
   float: right;
@@ -52,43 +52,40 @@
   margin-right: 20px;
 }
 
-.block2_right--1 {
-  background-color: gainsboro;
+.block2__right-first {
+  background-color: gray;
   width: 200px;
   height: 50px;
   float: left;
 }
 
-.block2_right--2 {
+.block2__right-second {
   width: 420px;
   height: 50px;
   float: right;
 }
 
-.block2_right--2__left {
-  background-color: gainsboro;
+.block2__right-second-left {
+  background-color: gray;
   width: 200px;
   height: 50px;
   float: left;
-
-
 }
 
-.block2_right--2__right {
-  background-color: gainsboro;
+.block2__right-second-right {
+  background-color: gray;
   width: 200px;
   height: 50px;
   float: right;
 
 }
-
 
 .block3 {
   width: 100%;
   height: 80px;
 }
 
-.block3_left {
+.block3__left {
   width: 420px;
   height: 50px;
   float: left;
@@ -98,21 +95,21 @@
 }
 
 
-.block3_left--1 {
-  background-color: gainsboro;
+.block3__left-first {
+  background-color: gray;
   width: 200px;
   height: 50px;
   float: left;
 }
 
-.block3_left--2 {
-  background-color: gainsboro;
+.block3__left-second {
+  background-color: gray;
   width: 200px;
   height: 50px;
   float: right;
 }
 
-.block3_right {
+.block3__right {
   width: 420px;
   height: 50px;
   float: right;
@@ -121,15 +118,15 @@
   margin-right: 20px;
 }
 
-.block3_right--1 {
-  background-color: gainsboro;
+.block3__right-first {
+  background-color: gray;
   width: 200px;
   height: 50px;
   float: left;
 }
 
-.block3_right--2 {
-  background-color: gainsboro;
+.block3__right-second {
+  background-color: gray;
   width: 200px;
   height: 50px;
   float: right;
@@ -141,7 +138,7 @@
   float: right;
 }
 
-.block4_right {
+.block4__right {
   width: 440px;
   height: 120px;
   float: right;
@@ -149,32 +146,32 @@
   margin-bottom: 15px;
 }
 
-.block4_right--lg {
-  background-color: gainsboro;
+.block4__right--lg {
+  background-color: gray;
   width: 200px;
   height: 120px;
   float: left;
 }
 
-.block4_right--sm {
+.block4__right--sm {
   width: 200px;
   height: 120px;
   float: right;
   margin-right: 20px;
 }
 
-.block4_right--sm1 {
-  background-color: gainsboro;
+.block4__right--sm1 {
+  background-color: gray;
   width: 200px;
   height: 50px;
-  margin-bottom: 7px;
+  margin-bottom: 0px;
 }
 
-.block4_right--sm2 {
-  background-color: gainsboro;
+.block4__right--sm2 {
+  background-color: gray;
   width: 200px;
   height: 50px;
-  margin-top: 8px;
+  margin-top: 15px;
 }
 
 
@@ -183,7 +180,7 @@
   height: 150px;
 }
 
-.block5_center {
+.block5__center {
   width: 440px;
   height: 120px;
   margin: 0 auto;
@@ -191,30 +188,30 @@
   margin-bottom: 15px;
 }
 
-.block5_center--lg {
-  background-color: gainsboro;
+.block5__center--lg {
+  background-color: gray;
   width: 200px;
   height: 120px;
   float: left;
 
 }
 
-.block5_center--sm {
+.block5__center--sm {
   width: 200px;
   height: 120px;
   float: right;
 
 }
 
-.block5_center--sm1 {
-  background-color: gainsboro;
+.block5__center--sm1 {
+  background-color: gray;
   width: 200px;
   height: 50px;
   margin-bottom: 15px;
 }
 
-.block5_center--sm2 {
-  background-color: gainsboro;
+.block5__center--sm2 {
+  background-color: gray;
   width: 200px;
   height: 50px;
   margin-top: 0px;
