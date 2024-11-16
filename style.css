@@ -133,6 +133,10 @@ a {
   display: block;
 }
 
+.section {
+  background-color: var(--color-gray-secondary);
+}
+
 .contant__title--second {
   font-family: var(--font-family);
   font-weight: 500;
