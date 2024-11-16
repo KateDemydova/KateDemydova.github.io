@@ -4,63 +4,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page</title>
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="slyle.css">
+  <title>Simple Site Template</title>
+  <link rel="stylesheet" href="../normalize.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+
 </head>
 
 <body>
-  <div class="block1">
-    <div class="block1__left"></div>
-    <div class="block1__right"></div>
-  </div>
-  <div class="clear"></div>
-
-  <div class="block2">
-    <div class="block2__left"></div>
-    <div class="block2__right">
-      <div class="block2__right-first"></div>
-      <div class="block2__right-second">
-        <div class="block2__right-second-left"></div>
-        <div class="block2__right-second-right"></div>
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <ol class="navbar__list">
+          <li class="navbar__item">
+            <a href="" class="navbar__link navbar__link--active">ГЛАВНАЯ</a>
+          </li>
+          <li class="navbar__item">
+            <a href="" class="navbar__link">ОБ АВТОРЕ</a>
+          </li>
+          <li class="navbar__item">
+            <a href="" class="navbar__link">РАБОТЫ</a>
+          </li>
+          <li class="navbar__item">
+            <a href="" class="navbar__link">ПРОЦЕСС</a>
+          </li>
+          <li class="navbar__item">
+            <a href="" class="navbar__link">КОНТАКТЫ</a>
+          </li>
+        </ol>
+      </nav>
+      <div class="content">
+        <h1 class="content__title">Дизайн и верстка</h1>
+        <p class="content__description">Lorem Ipsum - это текст-"рыба", часто используемый в печати и<br> вэб-дизайне.
+          Lorem
+          Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.</p>
+        <a class="content__link" href="">НАПИСАТЬ МНЕ</a>
+      </div>
+    </div>
+  </header>
+  <div class="section">
+    <div class="container">
+      <div class="contant">
+        <h2 class="contant__title--second">Обо мне</h2>
+        <p class="content__description--second">Lorem Ipsum - это текст-"рыба", часто используемый в печати и<br>
+          вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов<br> на латинице с начала XVI века.</p>
       </div>
     </div>
   </div>
-  <div class="clear"></div>
 
-  <div class="block3">
-    <div class="block3__left">
-      <div class="block3__left-first"></div>
-      <div class="block3__left-second"></div>
-    </div>
-    <div class="block3__right">
-      <div class="block3__right-first"></div>
-      <div class="block3__right-second"></div>
-    </div>
-  </div>
-  <div class="clear"></div>
-
-  <div class="block4">
-    <div class="block4__right">
-      <div class="block4__right--lg"></div>
-      <div class="block4__right--sm">
-        <div class="block4__right--sm1"></div>
-        <div class="block4__right--sm2"></div>
+  <div class="statistic">
+    <div class="container">
+      <div class="statistic-elements">
+        <div class="block visually-hidden">
+          <div class="block__image">
+            <img src="project.svg" alt="">
+          </div>
+          <div class="block__content">
+            <div class="block__content--md">40+</div>
+            <div class="block__content--sm">проектов</div>
+          </div>
+        </div>
+        <div class="block">
+          <div class="block__image">
+            <img src="project.svg" alt="">
+          </div>
+          <div class="block__content">
+            <div class="block__content--md">40+</div>
+            <div class="block__content--sm">проектов</div>
+          </div>
+        </div>
+        <div class="block">
+          <div class="block__image">
+            <img src="project.svg" alt="">
+          </div>
+          <div class="block__content">
+            <div class="block__content--md">40+</div>
+            <div class="block__content--sm">проектов</div>
+          </div>
+        </div>
+        <div class="block">
+          <div class="block__image">
+            <img src="project.svg" alt="">
+          </div>
+          <div class="block__content">
+            <div class="block__content--md">40+</div>
+            <div class="block__content--sm">проектов</div>
+          </div>
+        </div>
+        <div class="block">
+          <div class="block__image">
+            <img src="project.svg" alt="">
+          </div>
+          <div class="block__content">
+            <div class="block__content--md">40+</div>
+            <div class="block__content--sm">проектов</div>
+          </div>
+        </div>
+        <div class="block">
+          <div class="block__image">
+            <img src="project.svg" alt="">
+          </div>
+          <div class="block__content">
+            <div class="block__content--md">40+</div>
+            <div class="block__content--sm">проектов</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="clear"></div>
 
-  <div class="block5">
-    <div class="block5__center">
-      <div class="block5__center--lg"></div>
-      <div class="block5__center--sm">
-        <div class="block5__center--sm1"></div>
-        <div class="block5__center--sm2"></div>
+  <div class="section">
+    <div class="container">
+      <div class="contant-about">
+        <h2 class="contant-about__title--second">Как я работаю</h2>
+        <p class="content-about__description--second">Lorem Ipsum - это текст-"рыба", часто используемый в печати и<br>
+          вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов<br> на латинице с начала XVI века.</p>
       </div>
     </div>
   </div>
-  <div class="clear"></div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section__video">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/hhqZXNmSCzs?si=EDi9kiSCxy2tRs6S" title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__name">Иванов Иван</div>
+      <div class="footer__copyright">(с) 2018. Все права защищены.</div>
+    </div>
+  </footer>
 </body>
 
 </html>
