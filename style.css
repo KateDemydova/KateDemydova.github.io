@@ -34,6 +34,10 @@ html {
   line-height: var(--line-height);
 }
 
+body {
+  background-color: var(--color-gray-secondary);
+}
+
 a {
   text-decoration: none;
 }
@@ -63,6 +67,7 @@ a {
   width: 100%;
   margin: 0 auto;
 
+
 }
 
 .navbar {
@@ -83,7 +88,6 @@ a {
 
 }
 
-.navbar__item {}
 
 .navbar__link {
   color: var(--color-black);
@@ -133,9 +137,6 @@ a {
   display: block;
 }
 
-.section {
-  background-color: var(--color-gray-secondary);
-}
 
 .contant__title--second {
   font-family: var(--font-family);
