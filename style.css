@@ -149,7 +149,7 @@ body {
 }
 
 
-.contant__title--second {
+.contant__title-second {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 32px;
@@ -160,7 +160,7 @@ body {
 
 }
 
-.content__description--second {
+.content__description-second {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
@@ -207,7 +207,7 @@ body {
   margin-bottom: 3px;
 }
 
-.block__content--md {
+.block__content-md {
   font-family: var(--font-family);
   color: var(--color-white);
   font-weight: 500;
@@ -215,7 +215,7 @@ body {
   margin-left: 5px;
 }
 
-.block__content--sm {
+.block__content-sm {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
@@ -232,7 +232,7 @@ body {
 }
 
 
-.contant-about__title--second {
+.contant-about__title-second {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 32px;
@@ -243,7 +243,7 @@ body {
 
 }
 
-.content-about__description--second {
+.content-about__description-second {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
