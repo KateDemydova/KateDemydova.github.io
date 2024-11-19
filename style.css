@@ -426,7 +426,6 @@ body {
 
 @media (max-width: 576px) {
   .navbar__list {
-    flex-wrap: wrap;
     flex-direction: column;
     gap: var(--gap-sm);
   }
