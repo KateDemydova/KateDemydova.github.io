@@ -1,23 +1,23 @@
-@use 'mixins' as *; 
+@use 'mixins' as *;
 @use 'abstracts' as *;
+
 .header {
   background-color: $color-gray-light;
   padding-top: 49px;
   padding-bottom: 140px;
-  @include respond-to(md){
+  @include respond-to(md) {
     display: flex;
     width: 100%;
     padding-top: 20px;
     padding-bottom: 80px;
   }
-  }
-   
-  
-  .header-box {
+}
+
+.header-box {
   width: 100%;
-  }
-  
-  .navbar {
+}
+
+.navbar {
   margin-bottom: 142px;
   font-family: $font-family;
   font-weight: 400;
@@ -26,69 +26,64 @@
   letter-spacing: 0.1em;
   text-align: left;
   padding-top: 30px;
-  @include respond-to(md){
+  @include respond-to(md) {
     margin-bottom: 82px;
     font-size: 14px;
     padding-top: 25px;
   }
-  
-  }
-  
-  .navbar__list {
+}
+
+.navbar__list {
   display: flex;
   gap: $gap-lg;
-  @include respond-to(md){
+  @include respond-to(md) {
     flex-wrap: wrap;
     gap: $gap;
   }
-  @include respond-to(sm){
+  @include respond-to(sm) {
     flex-direction: column;
     gap: $gap-sm;
   }
-  
-  }
-  
-  
-  .navbar__link--active {
+}
+
+.navbar__link--active {
   font-weight: 500;
   color: $color-primery;
   line-height: $line-height;
-  
-  }
-  
-  .content {
+}
+
+.content {
   max-width: 540px;
-  
-  }
-  
-  .content__title {
+}
+
+.content__title {
   font-family: $font-family;
   font-weight: 500;
   font-size: 48px;
   color: $color-black;
   line-height: $line-height;
   padding-bottom: 35px;
-  @include respond-to(md){
+  @include respond-to(md) {
     font-size: 35px;
     padding-bottom: 30px;
   }
-  }
-  
-  .content__description {
+}
+
+.content__description {
   display: flex;
   font-family: $font-family;
   font-weight: 400;
   font-size: 16px;
   color: $color-content;
   line-height: $line-height;
-    padding-bottom: 60px;
-  @include respond-to(md){
+  padding-bottom: 60px;
+  @include respond-to(md) {
     font-size: 14px;
     padding-bottom: 50px;
   }
-  }
-  
-  .content__link {
+}
+
+.content__link {
   width: 225px;
   background-color: $color-primery;
   font-family: $font-family;
@@ -99,10 +94,10 @@
   color: $color-white;
   padding: 20px 48px 20px 48px;
   display: block;
-  @include respond-to(md){
+  @include respond-to(md) {
     width: auto;
     font-size: 14px;
     padding: 15px 48px 15px 48px;
     display: inline-block;
   }
-  }
+}

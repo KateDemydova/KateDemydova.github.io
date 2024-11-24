@@ -1,40 +1,40 @@
-@use 'mixins' as *; 
-@use 'abstracts' as *; 
+@use 'mixins' as *;
+@use 'abstracts' as *;
+
 .section__content--about {
   margin: 0 auto;
   padding-top: 105px;
   padding-bottom: 90px;
   @include flex(column, center, center);
-  @include respond-to(md){
+  @include respond-to(md) {
     padding-top: 55px;
     padding-bottom: 45px;
   }
-  }
-  
-  
-  .section__title--about {
+}
+
+.section__title--about {
   font-family: $font-family;
   font-weight: 500;
   font-size: 32px;
   text-align: center;
   color: $color-black;
-  
+
   margin-bottom: 28px;
-  @include respond-to(md){
+  @include respond-to(md) {
     font-size: 28px;
     margin-bottom: 20px;
   }
-  }
-  
-  .section__description--about {
-    max-width: 524px;
+}
+
+.section__description--about {
+  max-width: 524px;
   font-family: $font-family;
   font-weight: 400;
   font-size: 16px;
   line-height: $line-height;
   text-align: center;
   color: $color-content;
-  @include respond-to(md){
+  @include respond-to(md) {
     font-size: 14px;
   }
-  }
+}
