@@ -1,18 +1,17 @@
-const { task, series, parallel, src, dest, watch } = require('gulp')
-const sass = require('gulp-sass')(require('sass'))
-const replace = require('gulp-replace')
-const dc = require('postcss-discard-comments')
-const browserSync = require('browser-sync')
-const postcss = require('gulp-postcss')
-const csscomb = require('gulp-csscomb')
-const cssnano = require('cssnano')
-const rename = require('gulp-rename')
-const autoprefixer = require('autoprefixer')
-const mqpacker = require('css-mqpacker')
-const sortCSSmq = require('sort-css-media-queries')
-const pug = require('gulp-pug')
-
-const option = process.argv[3]
+const { task, series, src, dest, watch } = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const replace = require('gulp-replace');
+const dc = require('postcss-discard-comments');
+const browserSync = require('browser-sync');
+const postcss = require('gulp-postcss');
+const csscomb = require('gulp-csscomb');
+const cssnano = require('cssnano');
+const rename = require('gulp-rename');
+const autoprefixer = require('autoprefixer');
+const mqpacker = require('css-mqpacker');
+const sortCSSmq = require('sort-css-media-queries');
+const pug = require('gulp-pug');
+const tailwindcss = require('tailwindcss');
 
 const PATH = {
   scssFolder: './src/scss/',
@@ -29,10 +28,7 @@ const PATH = {
   jsFolder: './assets/js/',
   jsAllFiles: './assets/js/**/*.js',
   imgFolder: './assets/images/'
-}
-
-const SEARCH_IMAGE_REGEXP = /url\(['"]?.*\/images\/(.*?)\.(png|jpg|gif|webp|svg)['"]?\)/g;
-const REPLACEMENT_IMAGE_PATH = "url(../images/$1.$2)";
+};
 
 const PLUGINS = [
   dc({ discardComments: true }),
@@ -41,116 +37,67 @@ const PLUGINS = [
     cascade: true
   }),
   mqpacker({ sort: sortCSSmq })
-]
+];
 
+// Компиляция SCSS в CSS
 function compileScss() {
   return src(PATH.scssRootFile)
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(PLUGINS))
-    .pipe(csscomb())
-    .pipe(replace(SEARCH_IMAGE_REGEXP, REPLACEMENT_IMAGE_PATH))
     .pipe(dest(PATH.cssFolder))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream());
 }
 
-function compileScssMin() {
-  const pluginsForMinify = [...PLUGINS, cssnano({ preset: 'default' })]
-
-  return src(PATH.scssRootFile)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(csscomb())
-    .pipe(replace(SEARCH_IMAGE_REGEXP, REPLACEMENT_IMAGE_PATH))
-    .pipe(postcss(pluginsForMinify))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(dest(PATH.cssFolder))
-}
-
-function compileScssDev() {
-  const pluginsForDevMode = [...PLUGINS]
-
-  pluginsForDevMode.splice(1, 1)
-
-  return src(PATH.scssRootFile, { sourcemaps: true })
-    .pipe(sass().on('error', sass.logError))
-    .pipe(postcss(pluginsForDevMode))
-    .pipe(replace(SEARCH_IMAGE_REGEXP, REPLACEMENT_IMAGE_PATH))
-    .pipe(dest(PATH.cssFolder, { sourcemaps: true }))
-    .pipe(browserSync.stream())
-}
-
+// Компиляция Pug в HTML
 function compilePug() {
   return src(PATH.pugRootFile)
     .pipe(pug({ pretty: true }))
     .pipe(dest(PATH.htmlFolder))
+    .pipe(browserSync.stream());
 }
 
-function comb() {
-  return src(PATH.scssAllFiles).pipe(csscomb()).pipe(dest(PATH.scssFolder))
+// Компиляция Tailwind
+function compileTailwind() {
+  return src('./src/input.css')
+    .pipe(postcss([tailwindcss('./tailwind.config.js'), autoprefixer()]))
+    .pipe(dest(PATH.cssFolder))
+    .pipe(browserSync.stream());
 }
 
+
+// Инициализация сервера
 function serverInit() {
   browserSync({
     server: { baseDir: './' },
     notify: false
-  })
+  });
 }
 
+// Перезагрузка сервера
 async function sync() {
-  browserSync.reload()
+  browserSync.reload();
 }
 
+// Наблюдение за файлами
 function watchFiles() {
-  serverInit()
-  if (!option) watch(PATH.scssAllFiles, series(compileScss))
-  if (option === '--dev') watch(PATH.scssAllFiles, series(compileScssDev))
-  if (option === '--css') watch(PATH.cssAllFiles, sync)
-  watch(PATH.htmlAllFiles, sync)
-  watch(PATH.pugAllFiles, series(compilePug, sync))
-  watch(PATH.jsAllFiles, sync)
+  serverInit();
+
+  // Наблюдение за Tailwind
+  watch('./src/input.css', series(compileTailwind));
+
+  // Наблюдение за SCSS
+  watch(PATH.scssAllFiles, series(compileScss));
+
+  // Наблюдение за HTML и Pug
+  watch(PATH.htmlAllFiles, sync);
+  watch(PATH.pugAllFiles, series(compilePug, sync));
+
+  // Наблюдение за JavaScript
+  watch(PATH.jsAllFiles, sync);
 }
 
-function createStructure() {
-  const scssFileNames = ['style', '_variables', '_skin', '_common', '_footer', '_header']
-
-  const scssAllFiles = scssFileNames.map((fileName) => `${PATH.scssFolder}${fileName}.scss`)
-
-  const filePaths = [
-    `${PATH.htmlFolder}index.html`,
-    `${PATH.pugFolder}index.pug`,
-    `${PATH.cssFolder}style.css`,
-    `${PATH.jsFolder}main.js`,
-    scssAllFiles
-  ]
-
-  src('*.*', { read: false })
-    .pipe(dest(PATH.scssFolder))
-    .pipe(dest(PATH.pugFolder))
-    .pipe(dest(PATH.cssFolder))
-    .pipe(dest(PATH.jsFolder))
-    .pipe(dest(PATH.imgFolder))
-
-  return new Promise((resolve) =>
-    setTimeout(() => {
-      filePaths.forEach((filePath) => {
-        if (Array.isArray(filePath)) {
-          filePath.forEach((subPath) => {
-            require('fs').writeFileSync(subPath, '')
-            console.log(subPath)
-          })
-        } else {
-          require('fs').writeFileSync(filePath, '')
-          console.log(filePath)
-        }
-      })
-      resolve(true)
-    }, 1000)
-  )
-}
-
-task('comb', series(comb))
-task('scss', series(compileScss, compileScssMin))
-task('dev', series(compileScssDev))
-task('min', series(compileScssMin))
-task('pug', series(compilePug))
-task('cs', series(createStructure))
-task('watch', watchFiles)
+// Экспорт задач
+task('scss', compileScss);
+task('pug', compilePug);
+task('tailwind', series(compileTailwind));
+task('watch', watchFiles);
