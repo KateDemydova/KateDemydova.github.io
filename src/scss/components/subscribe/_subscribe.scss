@@ -1,0 +1,28 @@
+@use "../../presets" as *;
+@use "../../mixins" as *;
+
+.subscribe {
+  margin-bottom: 47px;
+  padding-top: $gap-lg;
+  padding-bottom: $gap-lg;
+
+  border-color: $color-primary;
+  background: $color-primary;
+
+  gap: $gap-lg 0;
+  &__container {
+    @extend %container;
+  }
+
+  &__form {
+    display: grid;
+
+    gap: $gap;
+    @include md-min {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include md-sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

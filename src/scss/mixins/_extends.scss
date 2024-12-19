@@ -1,0 +1,35 @@
+@use "../presets" as *;
+@use "mixins" as *;
+@use "mixins-media" as *;
+
+%container {
+  width: min(100% - $gap-x2, $container-size);
+
+  margin-inline: auto;
+}
+
+%container-two-columns {
+  display: grid;
+  align-content: center;
+  align-items: center;
+
+  width: min(100% - $gap-x2, $container-size);
+
+  grid-template-columns: 1fr 1fr;
+  margin-inline: auto;
+}
+
+%section {
+  @include lg-min {
+    padding-top: $gap-x5;
+    padding-bottom: $gap-x5;
+  }
+  @include lg-md {
+    padding-top: $gap-x4;
+    padding-bottom: $gap-x4;
+  }
+  @include md {
+    padding-top: $gap-x3;
+    padding-bottom: $gap-x3;
+  }
+}
