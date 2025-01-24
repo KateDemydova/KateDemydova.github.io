@@ -1,323 +1,53 @@
-<!DOCTYPE html>
-<html lang="zxx">
-  <head>
+<!doctype html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
-    <!-- Подключаем шрифты Roboto и Roboto Slab c сервиса google -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet">
-    <!-- Подключаем иконочный шрифт fontawesome -->
-    <link rel="stylesheet" href="libs/@fortawesome/fontawesome-free/css/all.min.css">
-    <!-- Подключаем наш основной стиль, с которым будем работать -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>GRID-TEMPLATE</title>
-  </head>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/font" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+<div id="carousel" class="carousel">
+<div id="slides-container" class="slides">
+    <div class="slide active"><img src="images/image.png" alt="img"></div>
+    <div class="slide"><img src="images/image%20(1).png" alt="img"></div>
+    <div class="slide"><img src="images/image%20(2).png" alt="img"></div>
+    <div class="slide"><img src="images/image%20(4).png" alt="img"></div>
+    <div class="slide"><img src="images/image%20(5).png" alt="img"></div>
+</div>
 
-  <body>
-    <header class="header">
-      <div class="header-content">
-        <div class="header-content__container">
-          <h1 class="header-content__title">WE ARE REAL WEB-DEVELOPERS</h1>
-          <div class="header-content__actions">
-            <a class="btn btn--light" href="">Learn more</a>
-            <a class="btn btn--light" href="">Get started</a>
-          </div>
+    <div id="controls-container" class="controls">
+        <div id="pause-btn" class="control control-pause">
+            <i class="fas fa-pause-circle"></i>
         </div>
-      </div>
-
-      <div class="header-menu">
-        <div class="header-menu__container">
-          <div class="header-logo">
-            <a class="header-logo__link" href=""><span class="header-logo__accent">SITE</span>LOGO</a>
-          </div>
-          <nav class="header-navbar">
-            <button class="header-navbar__btn" aria-label="Menu">
-              <span class="header-navbar__btn-row"></span>
-              <span class="header-navbar__btn-row"></span>
-              <span class="header-navbar__btn-row"></span>
-            </button>
-            <ol class="header-navbar__list">
-              <li class="header-navbar__item">
-                <a class="header-navbar__link" href="">Home</a>
-              </li>
-              <li class="header-navbar__item">
-                <a class="header-navbar__link" href="">About</a>
-              </li>
-              <li class="header-navbar__item">
-                <a class="header-navbar__link" href="">Contacts</a>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-
-      <div class="header-overlay"></div>
-    </header>
-
-    <main>
-      <section class="skills">
-        <h2 class="skills__title visually-hidden">Developer Skills Section</h2>
-        <div class="skills__container">
-          <article class="skill-item">
-            <h3 class="skill-item__title">
-              <a class="skill-item__link" href="">HTML</a>
-            </h3>
-            <div class="skill-item__image" style="background-image: url(assets/images/img-html.png)"></div>
-            <div class="skill-item__overlay"></div>
-          </article>
-
-          <article class="skill-item">
-            <h3 class="skill-item__title">
-              <a class="skill-item__link" href="">CSS</a>
-            </h3>
-            <div class="skill-item__image" style="background-image: url(assets/images/img-css.png)"></div>
-            <div class="skill-item__overlay"></div>
-          </article>
-
-          <article class="skill-item">
-            <h3 class="skill-item__title">
-              <a class="skill-item__link" href="">Markup</a>
-            </h3>
-            <div class="skill-item__image" style="background-image: url(assets/images/img-markup.png)"></div>
-            <div class="skill-item__overlay"></div>
-          </article>
-
-          <article class="skill-item">
-            <h3 class="skill-item__title">
-              <a class="skill-item__link" href="">Web-Design</a>
-            </h3>
-            <div class="skill-item__image" style="background-image: url(assets/images/img-webdesign.png)"></div>
-            <div class="skill-item__overlay"></div>
-          </article>
-
-          <article class="skill-item">
-            <h3 class="skill-item__title">
-              <a class="skill-item__link" href="">Quality Assurance</a>
-            </h3>
-            <div class="skill-item__image" style="background-image: url(assets/images/img-qa.png)"></div>
-            <div class="skill-item__overlay"></div>
-          </article>
-
-          <article class="skill-item">
-            <h3 class="skill-item__title">
-              <a class="skill-item__link" href="">Codding</a>
-            </h3>
-            <div class="skill-item__image" style="background-image: url(assets/images/img-codding.png)"></div>
-            <div class="skill-item__overlay"></div>
-          </article>
-
-          <article class="skill-item">
-            <h3 class="skill-item__title">
-              <a class="skill-item__link" href="">Adaptability</a>
-            </h3>
-            <div class="skill-item__image" style="background-image: url(assets/images/img-adaptability.png)"></div>
-            <div class="skill-item__overlay"></div>
-          </article>
-
-          <article class="skill-item">
-            <h3 class="skill-item__title">
-              <a class="skill-item__link" href="">PHP</a>
-            </h3>
-            <div class="skill-item__image" style="background-image: url(assets/images/img-php.png)"></div>
-            <div class="skill-item__overlay"></div>
-          </article>
-
-          <article class="skill-item">
-            <h3 class="skill-item__title">
-              <a class="skill-item__link" href="">SEO</a>
-            </h3>
-            <div class="skill-item__image" style="background-image: url(assets/images/img-seo.png)"></div>
-            <div class="skill-item__overlay"></div>
-          </article>
-        </div>
-
-        <div class="skills__actions">
-          <a class="btn btn--primary" href="">View all skills...</a>
-        </div>
-      </section>
-
-      <section class="about">
-        <div class="about__container">
-          <div class="about__contant">
-            <h2 class="about__title">Are You Ready?<br>Let's start!</h2>
-            <div class="about__description">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias voluptates commodi eligendi perspiciatis
-                non ipsam numquam, perferendis fugiat amet molestias provident unde, deleniti quo ducimus placeat
-                voluptas!
-              </p>
-              <p>
-                Quisquam voluptatum quae veritatis quas odio dolores quis voluptas asperiores ex obcaecati reiciendis
-                quidem ducimus et doloribus sed tempore, unde beatae aut consectetur eligendi ratione repellendus nulla
-                pariatur. Explicabo enim officia iure blanditiis eos, velit.
-              </p>
-              <p>
-                Culpa consequatur labore, adipisci asperiores impedit tenetur quam ab dicta recusandae quas nobis
-                reprehenderit necessitatibus placeat corporis enim aliquid sequi saepe. Quos amet, aliquam, reiciendis
-                porro eos voluptates maiores. Voluptas dolor quidem tempora illum laboriosam dolorum neque tenetur.
-              </p>
-              <p>
-                Alias voluptates commodi eligendi perspiciatis non ipsam numquam, perferendis fugiat amet molestias
-                provident unde, deleniti quo ducimus placeat voluptas! Quos amet, aliquam, reiciendis porro eos
-                voluptates maiores.
-              </p>
+        <div id="prev-btn" class="control control-prev">
+            <div class="preview">
+                <div class="preview_img" style=""></div>
             </div>
-          </div>
-          <div class="about__picture">
-            <img class="about__image" src="assets/images/img-lamp-webdev.png" alt="Lorem" title="Lorem">
-          </div>
+            <div><i class="fas fa-chevron-left"></i></div>
         </div>
-      </section>
-
-      <section class="subscribe">
-        <div class="subscribe__container">
-          <h2 class="subscribe__title visually-hidden">Contact form</h2>
-          <form class="subscribe__form" action="/url" method="POST" novalidate>
-            <div class="subscribe-item">
-              <label class="subscribe-item__label visually-hidden" for="name">Name</label>
-              <input class="subscribe-item__input" type="text" id="name" placeholder="User name" required>
+        <div id="next-btn" class="control control-next">
+            <div class="preview">
+                <div class="preview_img" style=""></div>
             </div>
-            <div class="subscribe-item">
-              <label class="subscribe-item__control visually-hidden" for="email">Email</label>
-              <input class="subscribe-item__input" type="email" id="email" placeholder="User email" required>
-            </div>
-            <div class="subscribe-item">
-              <button class="subscribe-item__btn" type="submit">Subscribe</button>
-            </div>
-          </form>
+            <div><i class="fas fa-chevron-right"></i></div>
         </div>
-      </section>
+    </div>
 
-      <section class="posts">
-        <div class="posts__container">
-          <h2 class="posts_title">Some section of posts</h2>
-          <div class="posts__grid">
-            <article class="post-item">
-              <a class="post-item__link" href="">
-                <div class="post-item__picture">
-                  <img class="post-item__image" src="assets/images/img-post-1.png" alt="" height="400">
-                </div>
-                <div class="post-item__content">
-                  <h3 class="post-item__title">Nostrum quod fugiat odio perspiciatis</h3>
-                  <p class="post-item__description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil aperiam ipsum obcaecati, quisquam.
-                    Reprehenderit corporis neque architecto, id, vero voluptate.
-                  </p>
-                </div>
-              </a>
-            </article>
-            <article class="post-item">
-              <a class="post-item__link" href="">
-                <div class="post-item__picture">
-                  <img class="post-item__image" src="assets/images/img-post-2.png" alt="" height="400">
-                </div>
-                <div class="post-item__content">
-                  <h3 class="post-item__title">Lorem ipsum dolor amet</h3>
-                  <p class="post-item__description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil aperiam ipsum obcaecati, quisquam.
-                    Reprehenderit corporis neque architecto, id, vero voluptate.
-                  </p>
-                </div>
-              </a>
-            </article>
-            <article class="post-item">
-              <a class="post-item__link" href="">
-                <div class="post-item__picture">
-                  <img class="post-item__image" src="assets/images/img-post-3.png" alt="" height="400">
-                </div>
-                <div class="post-item__content">
-                  <h3 class="post-item__title">Eum quibusdam voluptas explicabo, commodi</h3>
-                  <p class="post-item__description">
-                    Quo sit explicabo dolore, nihil soluta adipisci deleniti consequatur voluptate cumque, quaerat
-                    minima repudiandae consectetur incidunt dolorum, culpa, voluptates ab!
-                  </p>
-                </div>
-              </a>
-            </article>
-            <article class="post-item">
-              <a class="post-item__link" href="">
-                <div class="post-item__picture">
-                  <img class="post-item__image" src="assets/images/img-post-4.png" alt="" height="400">
-                </div>
-                <div class="post-item__content">
-                  <h3 class="post-item__title">Voluptate fuga earum</h3>
-                  <p class="post-item__description">
-                    Ullam saepe maiores magni, consequatur perferendis earum veniam officiis sapiente a veritatis
-                    corporis voluptatum repellendus, autem dolore molestiae suscipit quia!
-                  </p>
-                </div>
-              </a>
-            </article>
-            <article class="post-item">
-              <a class="post-item__link" href="">
-                <div class="post-item__picture">
-                  <img class="post-item__image" src="assets/images/img-post-5.png" alt="" height="400">
-                </div>
-                <div class="post-item__content">
-                  <h3 class="post-item__title">Facere rerum aliquam nostrum vel</h3>
-                  <p class="post-item__description">
-                    Quo sit explicabo dolore, nihil soluta adipisci deleniti consequatur voluptate cumque, quaerat
-                    minima repudiandae consectetur incidunt dolorum, culpa, voluptates ab!
-                  </p>
-                </div>
-              </a>
-            </article>
-            <article class="post-item">
-              <a class="post-item__link" href="">
-                <div class="post-item__picture">
-                  <img class="post-item__image" src="assets/images/img-post-6.png" alt="" height="400">
-                </div>
-                <div class="post-item__content">
-                  <h3 class="post-item__title">Ratione reprehenderit necessitatibus, labore vel</h3>
-                  <p class="post-item__description">
-                    Ad est voluptate sunt, cupiditate, voluptatem dignissimos corporis unde cumque distinctio, ab odio
-                    dolores molestias non cum fugiat enim voluptatibus!
-                  </p>
-                </div>
-              </a>
-            </article>
-          </div>
 
-          <div class="posts__actions">
-            <a class="btn btn--primary" href="">View all posts...</a>
-          </div>
-        </div>
-      </section>
-    </main>
+    <div id="indicators-container" class="indicators">
+        <div class="indicator active" data-slide-to="0"></div>
+        <div class="indicator" data-slide-to="1"></div>
+        <div class="indicator" data-slide-to="2"></div>
+        <div class="indicator" data-slide-to="3"></div>
+        <div class="indicator" data-slide-to="4"></div>
+    </div>
+</div>
 
-    <footer class="footer">
-      <div class="footer__container">
-        <div class="footer__socials">
-          <a class="footer__socials-item" href="">
-            <i class="fab fa-facebook-square" aria-hidden="true"></i>
-          </a>
-          <a class="footer__socials-item" href="">
-            <i class="fab fa-github" aria-hidden="true"></i>
-          </a>
-          <a class="footer__socials-item" href="">
-            <i class="fab fa-gitlab" aria-hidden="true"></i>
-          </a>
-          <a class="footer__socials-item" href="">
-            <i class="fab fa-telegram" aria-hidden="true"></i>
-          </a>
-          <a class="footer__socials-item" href="">
-            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-          </a>
-        </div>
-        <div class="footer__copyright">
-          <span class="footer__copyright-first">WE ARE REAL</span>
-          <span class="footer__copyright-second">WEB-DEVELOPERS</span>
-        </div>
-      </div>
-    </footer>
+<script src="index.js" type="module"></script>
 
-    <!-- Подключаем библиотеку jquery, необходимую для работы нашего основного скрипта -->
-    <script src="libs/jquery/dist/jquery.min.js"></script>
-    <!-- Подключаем наш основной скрипт, с которым будем работать -->
-    <script src="assets/js/main.js"></script>
-  </body>
+</body>
 </html>
