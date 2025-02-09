@@ -38,7 +38,7 @@ const addMoviesToList = ({Poster: poster, Title: title,Year: year}) => {
   img.title = `${title} (${year})`;
 
   item.append(img);
-  moviesListElement.append(item);
+  moviesListElement.prepend(item);
 }
 
 const clearMoviesList = () => {
