@@ -5,13 +5,37 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Слайдери</title>
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
-<h1>Оберіть слайдер</h1>
-<a href="https://katedemydova.github.io/slider_classes/">Slider_1</a>
-<a href="https://katedemydova.github.io/slider_prototypes/">Slider_2</a>
+<div class="container">
+    <h1 class="hr">Застосунок для фільмів</h1>
+    <div class="search">
+        <div class="search__group search__group--input">
+            <label for="search" class="search__label-input">Пошук фільму</label>
+            <input id="search" type="text" class="search__input" placeholder="Назва фільму">
+        </div>
 
+        <div class="search__group search__group--checkbox">
+            <input id="checkbox" type="checkbox" class="search__checkbox">
+            <label for="checkbox" class="search__label-checkbox">Додавати фільми до вже існуючого списку</label>
+        </div>
+        </div>
+    <div class="movies" id="movies-list">
+        <div class="movie-card">
+            <div class="movie-poster"></div>
+        </div>
+    </div>
+</div>
+<div id="preloader">
+    <img src="images/preloader.gif" alt="Завантаження...">
+</div>
+<script src="main.js"></script>
 </body>
 </html>
