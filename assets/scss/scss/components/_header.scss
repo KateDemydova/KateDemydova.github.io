@@ -1,0 +1,130 @@
+@use "mixins" as *;
+@use "abstracts" as *;
+
+.header {
+  padding-top: 49px;
+  padding-bottom: 140px;
+
+  background-color: $color-gray-light;
+
+  @include respond-to(md) {
+    display: flex;
+
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 80px;
+  }
+}
+
+.header-box {
+  width: 100%;
+}
+
+.navbar {
+  margin-bottom: 142px;
+  padding-top: 30px;
+
+  text-align: left;
+  letter-spacing: 0.1em;
+
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: $line-height;
+
+  @include respond-to(md) {
+    margin-bottom: 82px;
+    padding-top: 25px;
+
+    font-size: 14px;
+  }
+}
+
+.navbar__list {
+  display: flex;
+
+  gap: $gap-lg;
+  @include respond-to(md) {
+    flex-wrap: wrap;
+
+    gap: $gap;
+  }
+  @include respond-to(sm) {
+    flex-direction: column;
+
+    gap: $gap-sm;
+  }
+}
+
+.navbar__link--active {
+  color: $color-primery;
+
+  font-weight: 500;
+  line-height: $line-height;
+}
+
+.content {
+  max-width: 540px;
+}
+
+.content__title {
+  padding-bottom: 35px;
+
+  color: $color-black;
+
+  font-family: $font-family;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: $line-height;
+
+  @include respond-to(md) {
+    padding-bottom: 30px;
+
+    font-size: 35px;
+  }
+}
+
+.content__description {
+  display: flex;
+
+  padding-bottom: 60px;
+
+  color: $color-content;
+
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: $line-height;
+
+  @include respond-to(md) {
+    padding-bottom: 50px;
+
+    font-size: 14px;
+  }
+}
+
+.content__link {
+  display: block;
+
+  width: 225px;
+  padding: 20px 48px 20px 48px;
+
+  text-align: center;
+
+  color: $color-white;
+  background-color: $color-primery;
+
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: $line-height;
+
+  @include respond-to(md) {
+    display: inline-block;
+
+    width: auto;
+    padding: 15px 48px 15px 48px;
+
+    font-size: 14px;
+  }
+}

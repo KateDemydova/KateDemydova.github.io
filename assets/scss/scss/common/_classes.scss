@@ -1,0 +1,6 @@
+@use "abstracts" as *;
+
+.container {
+  width: min(100% - 40px, $container-primary);
+  margin: 0 auto;
+}
