@@ -1,0 +1,50 @@
+@use "mixins" as *;
+@use "abstracts" as *;
+
+.section__content--process {
+  margin: 0 auto;
+  padding-bottom: 90px;
+
+  @include flex(column, center, center);
+  @include respond-to(md) {
+    padding-top: 55px;
+    padding-bottom: 45px;
+  }
+
+  .section__title--process {
+    margin-top: 105px;
+    margin-bottom: 28px;
+
+    text-align: center;
+
+    color: $color-black;
+
+    font-family: $font-family;
+    font-size: 32px;
+    font-weight: 500;
+
+    @include respond-to(md) {
+      margin-top: 0;
+      margin-bottom: 20px;
+
+      font-size: 28px;
+    }
+  }
+
+  .section__description--process {
+    max-width: 524px;
+
+    text-align: center;
+
+    color: $color-content;
+
+    font-family: $font-family;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: $line-height;
+
+    @include respond-to(md) {
+      font-size: 14px;
+    }
+  }
+}

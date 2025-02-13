@@ -1,0 +1,40 @@
+@use 'mixins' as *; 
+@use 'abstracts' as *; 
+.footer {
+  display: flex;
+  background-color: $color-primery;
+  color: $color-white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  @include respond-to(md){
+    padding-top: 30px;
+    padding-bottom: 30px;
+   }
+  
+
+  
+  &__name {
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 21px;
+  color: $color-white;
+  margin-bottom: 20px;
+  @include respond-to(md){
+    font-size: 18px;
+    margin-bottom: 15px;
+   }
+  }
+  
+  &__copyright {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: $line-height;
+  color: $color-white;
+   
+  @include respond-to(md){
+    font-size: 12px;
+
+   }
+  }
+}
