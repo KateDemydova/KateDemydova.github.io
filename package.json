@@ -1,32 +1,29 @@
 {
-  "name": "hw16",
+  "name": "hw17",
   "version": "1.0.0",
-  "main": "gulpfile.js",
+  "main": "src/index.js",
   "scripts": {
-    "build:css": "gulp copyNormalize && gulp scss && gulp scssMin",
-    "watch:css": "gulp watch"
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "csv-loader": "^3.0.5",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack-cli": "^6.0.1",
+    "xml-loader": "^1.2.1"
+  },
   "dependencies": {
-    "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
     "normalize.css": "^8.0.1"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "browser-sync": "^3.0.3",
-    "css-mqpacker": "^7.0.0",
-    "cssnano": "^7.0.6",
-    "gulp": "^5.0.0",
-    "gulp-csscomb": "^3.1.0",
-    "gulp-postcss": "^10.0.0",
-    "gulp-pug": "^5.0.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^6.0.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "sass": "^1.84.0",
-    "sort-css-media-queries": "^2.4.0"
   }
 }

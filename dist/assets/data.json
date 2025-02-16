@@ -1,0 +1,20 @@
+{
+  "name": "Example Project",
+  "version": "1.0.0",
+  "description": "This is a sample JSON file",
+  "author": "Your Name",
+  "dependencies": {
+    "webpack": "^5.98.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "assets": [
+    {
+      "file": "icon.png",
+      "path": "src/assets/icon.png"
+    },
+    {
+      "file": "style.css",
+      "path": "src/style.css"
+    }
+  ]
+}

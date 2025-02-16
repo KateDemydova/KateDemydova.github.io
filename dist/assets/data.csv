@@ -1,0 +1,4 @@
+name,version,description,author
+Example Project,1.0.0,This is a sample CSV file,Your Name
+webpack,5.98.0,Module bundler,
+webpack-cli,5.0.1,Command line interface for webpack,
