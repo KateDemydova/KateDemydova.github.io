@@ -3,36 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin' );
-<<<<<<< HEAD
-
-
-
-module.exports = {
-  mode: 'development',
-  entry: {
-    main: './src/index.js',
-    statistics: './src/statistics.js'
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash].js'
-  },
-  resolve: {
-    extensions: [ '.js', '.json', '.jsx', '.ts', '.tsx'],
-    alias: {
-      '@css': path.resolve(__dirname, 'src', 'css'),
-      '@less': path.resolve(__dirname, 'src', 'less'),
-      '@sass': path.resolve(__dirname, 'src', 'sass'),
-      '@assets': path.resolve(__dirname, 'src', 'assets')
-    }
-  },
-optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
-},
-  plugins: [
-=======
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin' );
@@ -70,18 +40,10 @@ const setCssLoaders = (extra) => {
 
 const setPlugins = () => {
   const plugins = [
->>>>>>> 601b0c7 (webpack фadvanced)
     new HtmlWebpackPlugin({
       template: './src/index.html',
       inject: 'body'
     }),
-<<<<<<< HEAD
-    new CopyWebpackPlugin({
-          patterns: [
-            { from: 'src/assets', to: 'assets', noErrorOnMissing: true },
-            { from: 'src/css', to: 'css', noErrorOnMissing: true },
-            { from: 'node_modules/normalize.css/normalize.css', to: 'css/normalize.css', noErrorOnMissing: true }
-=======
     new MiniCssExtractPlugin({
       filename: getFileName('css'),
     }),
@@ -94,7 +56,6 @@ const setPlugins = () => {
           to: path.resolve(__dirname, 'dist'),
         },
         { from: 'node_modules/normalize.css/normalize.css', to: 'css/normalize.css', noErrorOnMissing: true }
->>>>>>> 601b0c7 (webpack фadvanced)
       ]
     }),
     new CleanWebpackPlugin({
@@ -105,18 +66,6 @@ const setPlugins = () => {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
       'window.$': 'jquery'
-<<<<<<< HEAD
-    })
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader' ,
-          'css-loader'
-        ]
-=======
     }),
     new ESLintPlugin ({
       extensions: ['js'],
@@ -192,17 +141,12 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         use: setCssLoaders('sass-loader')
->>>>>>> 601b0c7 (webpack фadvanced)
       },
       {
         test: /\.(png|jpe?g|svg|gif|webp)$/i,
         type: 'asset/resource',
         generator: {
-<<<<<<< HEAD
-          filename: 'assets/[name][ext]'
-=======
           filename: 'assets/[name].[hash][ext]'
->>>>>>> 601b0c7 (webpack фadvanced)
         }
       },
       {
@@ -220,11 +164,6 @@ module.exports = {
         test: /\.csv$/,
         use: ['csv-loader']
       },
-<<<<<<< HEAD
-    ]
-  }
-}
-=======
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
@@ -239,4 +178,3 @@ module.exports = {
   }
 };
 
->>>>>>> 601b0c7 (webpack фadvanced)
