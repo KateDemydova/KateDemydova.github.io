@@ -1,5 +1,14 @@
-# IntellijIdea files
+### Custom .gitignore template
+# Folders
 .idea/
 .vscode/
-.DS_Store
 node_modules/
+dist/
+build/
+
+# Files
+.DS_Store
+*.log
+*.js.map
+*.d.ts
+
