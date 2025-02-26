@@ -1,32 +1,31 @@
 {
-  "name": "hw16",
-  "version": "1.0.0",
-  "main": "gulpfile.js",
+  "name": "my-react-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "build:css": "gulp copyNormalize && gulp scss && gulp scssMin",
-    "watch:css": "gulp watch"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "bootstrap": "^5.3.3",
-    "jquery": "^3.7.1",
-    "normalize.css": "^8.0.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
-    "browser-sync": "^3.0.3",
-    "css-mqpacker": "^7.0.0",
-    "cssnano": "^7.0.6",
-    "gulp": "^5.0.0",
-    "gulp-csscomb": "^3.1.0",
-    "gulp-postcss": "^10.0.0",
-    "gulp-pug": "^5.0.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^6.0.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "sass": "^1.84.0",
-    "sort-css-media-queries": "^2.4.0"
+    "eslint": "^9.21.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.1",
+    "vite": "^6.2.0"
   }
 }

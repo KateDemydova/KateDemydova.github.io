@@ -1,10 +1,8 @@
-# У цій роботі була проведена робота з Gulp
+# React + Vite
 
-1. Під час роботи були створені файли конфігураціі та відповідні налаштування для роботи з проектом.
-2. Також були встановлені пакети для роботи з scss (компіляції, сортування);
-3. Налаштування спостерігачів за файлами html, css, js;
-4. Налаштування пакетів для мініфікації файлів;
-5. Налаштування для обробки вендорних префіксів;
-6. Встановлення та налаштування карти коду;
-7. Встановлення на сортування media queries;
-8. Фінальна збірка проекту
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
