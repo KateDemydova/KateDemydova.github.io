@@ -22,6 +22,8 @@
 
 git clone --branch feature/3_react --single-branch https://github.com/KateDemydova/KateDemydova.github.io.git
 
+Переходимо у папку репозиторію
+
 cd KateDemydova.github.io
 
 2. Встановлення модулів
