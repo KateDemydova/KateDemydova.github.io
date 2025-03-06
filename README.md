@@ -20,8 +20,9 @@
 
 1. Клонування репозиторію
 
-git clone https://github.com/KateDemydova/KateDemydova.github.io.git
-cd your-repo-name
+git clone --branch feature/3_react --single-branch https://github.com/KateDemydova/KateDemydova.github.io.git
+
+cd KateDemydova.github.io
 
 2. Встановлення модулів
 
