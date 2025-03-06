@@ -1,49 +1,71 @@
-# My React App
+# React Component Controlled and Uncontrolled
 
-## Короткий опис проекту
+## Опис проєкту
 
-Цей проект є базовим React додатком, створеним за допомогою Vite. 
-Він містить компоненти кнопки (з обробкою кліку) та текстового поля (з обробкою введення).
+Цей проєкт демонструє роботу з контрольованими (Controlled Components) і неконтрольованими (Uncontrolled Components) 
+формами у React, а також виконання запиту до сервера для отримання списку постів.
 
-## Використані технології
+## Структура проєкту
+📂 src
+├── 📂 components
+│   ├── 📄 ControlledForm.tsx
+│   ├── 📄 UncontrolledForm.tsx
+│   ├── 📄 PostsList.tsx
+├── 📄 App.tsx
+├── 📄 index.tsx
+├── 📄 styles.css
 
-* React
 
-* Vite
+## Встановлення та запуск
 
-* TailwindCSS
+1. Клонування репозиторію
 
-## Як почати роботу
+git clone https://github.com/KateDemydova/KateDemydova.github.io.git
+cd your-repo-name
 
-1. Запуск проекту
-
-git clone <Ссилка на репозиторій>
-cd my-react-app
-
-2. Встановлення залежностей
+2. Встановлення модулів
 
 npm install
 
-3. Запуск розробницького сервера
+3. Запуск проєкту
 
 npm run dev
 
-## Структура проекту
+Або, якщо використовуєте yarn:
 
-my-react-app/
-├── src/
-│   ├── components/
-│   │   ├── Button.jsx
-│   │   └── Input.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-├── README.md
-└── ...
+yarn run dev
 
-## Деплоймент
 
-Проект був розгорнутий на Netlify.
 
-https://myjsreact.netlify.app/
+## Опис компонентів
+
+### ControlledForm.tsx
+
+Контрольована форма, де введені дані зберігаються у стані (useState).
+
+Виводить поточне значення введеного тексту.
+
+Відправляє текст через alert при сабміті форми.
+
+### UncontrolledForm.tsx
+
+Неконтрольована форма, що використовує useRef для отримання значення введеного тексту.
+
+Виводить alert, якщо поле порожнє або містить текст при сабміті.
+
+### PostsList.tsx
+
+Використовує useEffect для отримання списку постів з сервера.
+
+Обробляє стани завантаження (loading), помилки (error) та успішного завантаження.
+
+Відображає список перших 10 постів.
+
+
+## Використані технології
+
+1. React (з використанням хуків useState, useEffect, useRef)
+
+2. TypeScript (типізація пропсів та стейтів)
+
+3. CSS (стилізація компонентів)

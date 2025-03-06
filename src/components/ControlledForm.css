@@ -1,0 +1,48 @@
+.text-container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #413c5d, #2c2845);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.input {
+    padding: 4px;
+    margin-right: 5px;
+    color: #d3d0e0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+.input:focus {
+    border-color: #b5b2c5;
+    box-shadow: 0 0 12px rgba(181, 178, 197, 0.6);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+.input-item {
+    font-size: 18px;
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.button {
+    font-size: 18px;
+    margin-left: 5px;
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+}
