@@ -1,49 +1,63 @@
-# My React App
+# Робота з хуком use() в React
 
-## Короткий опис проекту
+Цей проєкт демонструє використання хуку use() у React для роботи з асинхронними даними. 
+Реалізовано компонент MessageComponent, який отримує дані з Promise, та форму авторизації LoginForm, 
+яка імітує запит на сервер.
 
-Цей проект є базовим React додатком, створеним за допомогою Vite. 
-Він містить компоненти кнопки (з обробкою кліку) та текстового поля (з обробкою введення).
-
-## Використані технології
+## У роботі використовувалися такі технології:
 
 * React
-
+* Type Script
 * Vite
-
-* TailwindCSS
-
-## Як почати роботу
-
-1. Запуск проекту
-
-git clone <Ссилка на репозиторій>
-cd my-react-app
-
-2. Встановлення залежностей
-
-npm install
-
-3. Запуск розробницького сервера
-
-npm run dev
 
 ## Структура проекту
 
 my-react-app/
 ├── src/
 │   ├── components/
-│   │   ├── Button.jsx
-│   │   └── Input.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
+│   │   ├── MessageComponent.tsx
+│   │   ├── LoginForm.tsx
+│   ├── utils/
+│   │   ├── FakeLogin.ts
+│   ├── types/
+│   │   ├── MessageComponentProps.ts
+│   ├── App.tsx
+│   ├── main.tsx
+├── public/
 ├── package.json
 ├── README.md
-└── ...
 
-## Деплоймент
+## Короткий опис
 
-Проект був розгорнутий на Netlify.
+1. MessageComponent за допомогою хука use() отримує дані із Promise 
+та їх відображення у вигляді текстового повідомлення.
+2. Компонент LoginForm — це форма авторизації у React, яка:
+* Отримує логін та пароль від користувача.
+* Використовує асинхронний запит (FakeLogin) для перевірки авторизації.
+* Відображає статус: очікування, помилку або успішний вхід.
 
-https://myjsreact.netlify.app/
+## Ініціалізація проекту
+
+1. Клонуйте рипозиторії проекту
+
+git clone https://github.com/KateDemydova/KateDemydova.github.io.git
+
+2. Перейдіть у папку 
+
+cd my-react-app
+
+3. Ініціалізуйте проект
+
+npm install 
+
+або
+
+yarn install
+
+4. Для збирання використовуйте 
+
+npm run dev
+
+або
+
+yarn run dev

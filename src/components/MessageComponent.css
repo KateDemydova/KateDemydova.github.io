@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.message-container {
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(148, 152, 156);
+    border-radius: 8px;
+    border: 2px solid rgba(134, 140, 145, 0.11);
+    transition: all 0.3s ease-in-out;
+}
+
+.message-container:hover {
+    transform: scale(1.03);
+}
+
+.app-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #242424;
+}
+
+.loading-message {
+    font-size: 16px;
+    font-style: italic;
+    color: #242424;
+
+}
