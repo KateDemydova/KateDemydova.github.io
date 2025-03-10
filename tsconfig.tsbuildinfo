@@ -1,0 +1,1 @@
+{"root":["./src/vite-env.d.ts","./src/types/messagecomponentprops.ts","./src/utils/fakelogin.ts","./src/app.tsx","./src/main.tsx","./src/components/loginform.tsx","./src/components/messagecomponent.tsx"],"version":"5.7.3"}
