@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+# Розробка з використанням хука useEffect і Axios
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Мета: 
+Реалізувати виконання та обробку запитів до HTTP-серверів за допомогою асинхронних запитів 
+з використанням useEffect і Axios.
 
-Currently, two official plugins are available:
+## Ініціалізація проекту:
+Клонуйте рипозиторій:
+git clone https://github.com/KateDemydova/KateDemydova.github.io.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Перейдіть до каталогу проекту:
+cd my-react-app
 
-## Expanding the ESLint configuration
+Встановіть модулі:
+npm install
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Структура проекту:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+📦 my-react-app
+├── 📂 node_modules (library root)
+├── 📂 public
+├── 📂 src
+│   ├── 📂 assets
+│   ├── 📂 components
+│   │   ├── 📄 DataFetcher.tsx
+│   │   ├── 📄 DataFetcher.css
+│   │   ├── 📄 PostItem.tsx
+│   │   ├── 📄 PostItem.css
+│   ├── 📂 types
+│   ├── 📄 App.tsx
+│   ├── 📄 App.css
+│   ├── 📄 index.css
+│   ├── 📄 main.tsx
+│   ├── 📄 vite-env.d.ts
+├── 📄 .gitignore
+├── 📄 package.json
+├── 📄 tsconfig.json
+├── 📄 vite.config.ts
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Опис проекта:
+DataFetcher – компонент у React, який отримує дані про пост з HTTP-сервера на основі змінного id. 
+Він використовує useState для збереження стану (пост, помилка, завантаження) та useEffect для виконання 
+запитів. При кожному зміненні id компонент робить новий запит, а користувач може завантажувати наступний пост кнопкою. 
+Вбудована обробка помилок і скасування запитів допомагають уникнути некоректної поведінки.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+##  Технології, що використовувались:
+* React
+* TypeScript
+* Vite
+* Axios
+
+
