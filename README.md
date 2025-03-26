@@ -1,49 +1,80 @@
-# My React App
+# React Redux Users App
 
-## Короткий опис проекту
+Проєкт демонструє базову інтеграцію Redux Toolkit в React-додатку для управління користувачами. Реалізовано глобальний стан з використанням `createSlice`, `useSelector`, `useDispatch`, а також винесені селектори для зручного доступу до state.
 
-Цей проект є базовим React додатком, створеним за допомогою Vite. 
-Він містить компоненти кнопки (з обробкою кліку) та текстового поля (з обробкою введення).
+---
 
-## Використані технології
+## 🛠 Технології
 
-* React
+- React + TypeScript
+- Redux Toolkit
+- React Redux
+- Vite
 
-* Vite
+---
 
-* TailwindCSS
+## 📁 Структура проекту 
 
-## Як почати роботу
+src/ 
+├── components/ │ 
+    ├── ParentComponent.tsx │ 
+    ├── ChildComponent.tsx │ 
+    └── GrandChildComponent.tsx 
+├── redux/ │ 
+    ├── store.ts │ 
+    ├── userSlice.ts │ 
+    ├── userSelectors.ts │ 
+    └── hook.ts 
+├── types/ 
+    │ └── user.types.ts 
+├── App.tsx 
+└── main.tsx
 
-1. Запуск проекту
+# Слайси користувачів
 
-git clone <Ссилка на репозиторій>
-cd my-react-app
+Проект містить:
+* два основні редʼюсери:
 
-2. Встановлення залежностей
+- addUser(name: string)
 
+- removeUser(id: string)
+
+* селектор
+* типізовані хуки
+
+## Компоненти
+GrandChildComponent.tsx
+Використовує useAppSelector(selectUsers) для читання стану
+
+Додає та видаляє користувачів через dispatch(addUser) і dispatch(removeUser)
+
+ChildComponent.tsx і ParentComponent.tsx
+Використовуються як структурні обгортки для демонстрації вкладеності компонентів.
+
+## Ініціалізація
+
+Клонуйте рипозиторій
+git clone https://github.com/KateDemydova/KateDemydova.github.io.git
+
+Перейдіть в папку 
+my-redux-app
+
+Встановіть залежності
 npm install
 
-3. Запуск розробницького сервера
-
+Запустіть сервер
 npm run dev
 
-## Структура проекту
+## Реалізовано згідно вимог
+- Використано Redux Toolkit
 
-my-react-app/
-├── src/
-│   ├── components/
-│   │   ├── Button.jsx
-│   │   └── Input.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-├── README.md
-└── ...
+- Створено редʼюсери та дії через createSlice
 
-## Деплоймент
+- Використано селектори (selectUsers)
 
-Проект був розгорнутий на Netlify.
+- Підключено Redux Provider (main.tsx)
 
-https://myjsreact.netlify.app/
+- Стан users більше не передається через пропси або контекст
+
+- Додаток коректно оновлюється при зміні стану
+
