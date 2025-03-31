@@ -1,49 +1,63 @@
-# My React App
+# 🧠 React Redux App with AsyncThunk
 
-## Короткий опис проекту
+Цей проєкт демонструє використання Redux Toolkit у React-додатку з асинхронними діями (`createAsyncThunk`), станами завантаження, локальним додаванням/видаленням користувачів та моканими API-викликами.
 
-Цей проект є базовим React додатком, створеним за допомогою Vite. 
-Він містить компоненти кнопки (з обробкою кліку) та текстового поля (з обробкою введення).
+## 📦 Стек технологій
 
-## Використані технології
+- React
+- Redux Toolkit
+- TypeScript
+- AsyncThunk
+- Мокані дані (`Promise.resolve`)
 
-* React
+---
 
-* Vite
+## 📁 Структура проекту 
 
-* TailwindCSS
+src/
+├── components/
+│   ├── ParentComponent.tsx
+│   ├── ChildComponent.tsx
+│   └── GrandChildComponent.tsx
+├── redux/
+│   ├── store.ts
+│   ├── hook.ts
+│   ├── userSlice.ts         
+│   └── userSelectors.ts     
+├── types/
+│   └── user.types.ts        
+├── App.tsx
+└── main.tsx
 
-## Як почати роботу
 
-1. Запуск проекту
+## Основна логіка
 
-git clone <Ссилка на репозиторій>
-cd my-react-app
+fetchUsers: асинхронне завантаження користувачів (мокано).
 
-2. Встановлення залежностей
+addUser(name): додавання користувача в список.
 
+removeUser(id): видалення користувача.
+
+UI показує статуси:
+
+"Loading..." при завантаженні
+
+"Something went wrong..." при помилці
+
+
+## Ініціалізація
+
+Клонуйте рипозиторій
+git clone https://github.com/KateDemydova/KateDemydova.github.io.git
+
+Перейдіть в папку 
+my-redux-app
+
+Встановіть залежності
 npm install
 
-3. Запуск розробницького сервера
-
+Запустіть сервер
 npm run dev
 
-## Структура проекту
 
-my-react-app/
-├── src/
-│   ├── components/
-│   │   ├── Button.jsx
-│   │   └── Input.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-├── README.md
-└── ...
 
-## Деплоймент
-
-Проект був розгорнутий на Netlify.
-
-https://myjsreact.netlify.app/
