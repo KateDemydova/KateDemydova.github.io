@@ -1,49 +1,50 @@
-# My React App
+📋 Registration Form with React, Formik, Yup & Input Mask
 
-## Короткий опис проекту
+Це проста, але потужна форма реєстрації, створена на React, з валідацією через Formik і Yup. Поле телефону має маску вводу у форматі українського мобільного номера.
 
-Цей проект є базовим React додатком, створеним за допомогою Vite. 
-Він містить компоненти кнопки (з обробкою кліку) та текстового поля (з обробкою введення).
+## ✨ Функціонал
 
-## Використані технології
+- ✅ Валідація полів з Formik + Yup
+- ✅ Маска для поля телефону (через `react-input-mask`)
+- ✅ Повідомлення про помилки та успішну валідацію
+- ✅ Повідомлення після успішної відправки форми
+- ✅ Відправка даних на API (fetch POST)
 
-* React
+## 🔧 Технології
 
-* Vite
+- React (v19)
+- TypeScript
+- Formik
+- Yup
+- React Input Mask (`react-input-mask`)
+- HTML/CSS (inline стилі для простоти)
 
-* TailwindCSS
+## 🚀 Як запустити проєкт
 
-## Як почати роботу
+1. **Склонуй репозиторій**
+   ```bash
+   git clone https://github.com/KateDemydova/KateDemydova.github.io.git
+   cd KateDemydova.github.io
 
-1. Запуск проекту
-
-git clone <Ссилка на репозиторій>
-cd my-react-app
-
-2. Встановлення залежностей
+2. Встанови залежності
 
 npm install
 
-3. Запуск розробницького сервера
+
+3. Запусти
 
 npm run dev
 
-## Структура проекту
+📂 Структура проєкту
+src/
+│
+├── components/
+│   └── ValidationForm.tsx
+│
+├── schemas/
+│   └── validation.ts
+│
+└── main.tsx / App.tsx
 
-my-react-app/
-├── src/
-│   ├── components/
-│   │   ├── Button.jsx
-│   │   └── Input.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-├── README.md
-└── ...
+   
 
-## Деплоймент
-
-Проект був розгорнутий на Netlify.
-
-https://myjsreact.netlify.app/
