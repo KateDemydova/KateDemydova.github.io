@@ -1,49 +1,34 @@
-# My React App
+# React + MUI 
 
-## Короткий опис проекту
+Цей проєкт створений з використанням:
 
-Цей проект є базовим React додатком, створеним за допомогою Vite. 
-Він містить компоненти кнопки (з обробкою кліку) та текстового поля (з обробкою введення).
+-  React + TypeScript
+-  Material UI (MUI)
+-  React Router v6
+-  Повністю адаптивний макет з фіксованим хедером та футером
+- Центрування сторінки категорії по вертикалі та горизонталі
 
-## Використані технології
+---
 
-* React
+## Структура проєкту
 
-* Vite
+src/ ├── components/ │ ├── CardItem.tsx # Один елемент-картка │ ├── Footer.tsx # Футер сайту │ ├── Layout.tsx # Основний Layout з AppBar, Footer і Outlet │ ├── MenuAppBar.tsx # Навігація сайту (header) │ ├── PageLayout.tsx # Центрування контенту всередині сторінки │ └── SelectActionCard.tsx # Список карток з кнопками переходу │ ├── pages/ │ └── CategoryPage.tsx # Сторінка-заглушка для категорій │ ├── App.tsx # Роутинг з <Layout /> і вкладеними маршрутами ├── index.tsx # Точка входу └── index.css # Глобальні стилі (включно з height: 100%)
 
-* TailwindCSS
+yaml
+Copy
+Edit
 
-## Як почати роботу
+---
 
-1. Запуск проекту
+## 🚀 Запуск проєкту
 
-git clone <Ссилка на репозиторій>
-cd my-react-app
-
-2. Встановлення залежностей
 
 npm install
 
-3. Запуск розробницького сервера
+## Запуск сервера
 
 npm run dev
 
-## Структура проекту
+або
 
-my-react-app/
-├── src/
-│   ├── components/
-│   │   ├── Button.jsx
-│   │   └── Input.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-├── README.md
-└── ...
-
-## Деплоймент
-
-Проект був розгорнутий на Netlify.
-
-https://myjsreact.netlify.app/
+yarn dev
