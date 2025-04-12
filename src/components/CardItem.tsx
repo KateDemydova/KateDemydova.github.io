@@ -17,7 +17,7 @@ const CardItem = ({ id, title, description, isSelected, onClick }: CardItemProps
     const navigate = useNavigate();
 
     const handleNavigate = () => {
-       setTimeout(() => navigate(`/category/${id}`), 150) ;
+        navigate(`/category/${id}`);
     };
 
     return (
