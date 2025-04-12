@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
-import { Link as RouterLink } from 'react-router-dom';
+import {useNavigate} from "react-router-dom";
 export interface CardItemProps {
     id: number;
     title: string;
@@ -14,6 +14,12 @@ export interface CardItemProps {
 }
 
 const CardItem = ({ id, title, description, isSelected, onClick }: CardItemProps) => {
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+       setTimeout(() => navigate(`/category/${id}`), 150) ;
+    };
+
     return (
         <Card sx={{ width: { xs: '100%', sm: 300, md: 350, lg: 400 } }}>
             <CardActionArea
@@ -40,8 +46,7 @@ const CardItem = ({ id, title, description, isSelected, onClick }: CardItemProps
                 <Button
                     variant="outlined"
                     size="small"
-                    component={RouterLink}
-                    to={`/category/${id}`}
+                    onClick={handleNavigate}
                 >
                     Дізнатись більше
                 </Button>
