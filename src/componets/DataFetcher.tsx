@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import {useEffect, useRef,useState} from "react";
 import axios from "axios";
 import { Post } from "../types/Post.interface";
 import PostItem from "./PostItem";
 import './DataFetcher.css';
-import {toast} from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
-import AutoTimer from "./AutoTimer";
+import {useIdleTimer} from "react-idle-timer";
+import { Id } from "react-toastify";
 
 
 
@@ -14,6 +15,10 @@ const DataFetcher: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [id, setId] = useState<number>(1);
+
+    const [autoEnabled, setAutoEnabled] = useState<boolean>(true);
+    const notifiedPostIdRef = useRef<number | null>(null);
+    const toastIdRef = useRef<Id | null>(null);
 
 
     useEffect(() => {
@@ -59,6 +64,53 @@ const DataFetcher: React.FC = () => {
         };
     }, [id]);
 
+    const handleOnIdle = () => {
+        if (!autoEnabled) return;
+
+        const nextId = id < 100 ? id + 1 : 1;
+
+        if (notifiedPostIdRef.current === nextId) {
+            return;
+        }
+        setId(nextId);
+        notifiedPostIdRef.current = nextId;
+
+        setTimeout(() => {
+            if (toastIdRef.current !== null && toast.isActive(toastIdRef.current)) {
+                toast.update(toastIdRef.current, {
+                    render: `Перехід на пост #${nextId}`,
+                    autoClose: 2000,
+                    closeButton: true,
+                    draggable: true,
+                    type: 'info',
+                    isLoading: false,
+                });
+            } else {
+                toastIdRef.current = toast.info(`Перехід на пост #${nextId}`, {
+                    autoClose: 2000,
+                    closeOnClick: true,
+                    draggable: true,
+                    closeButton: true,
+                    onClose: () => {
+                        toastIdRef.current = null;
+                    }
+                });
+            }
+        }, 100);
+    };
+
+    useIdleTimer({
+        timeout: 5000,
+        onIdle: handleOnIdle,
+    });
+
+    const toggleAuto = () => {
+        setAutoEnabled((prev) => !prev);
+        toast[autoEnabled ? 'warn' : 'success'](
+            autoEnabled ? 'Автоперехід вимкнено' : 'Автоперехід вімкнено'
+        );
+    };
+
     return (
         <div className="data-container">
             <h2>Пост {id}</h2>
@@ -66,11 +118,9 @@ const DataFetcher: React.FC = () => {
                 className="button"
                 onClick={() => {
                     const nextId = id < 100 ? id + 1 : 1;
-                    toast(`Завантаження #${nextId}...`);
+                    setId(nextId);
+                    toast.info(`Завантаження #${nextId}...`, { autoClose: 3000 });
 
-                    setTimeout(() => {
-                        setId(nextId);
-                    }, 600);
                 }}
                 disabled={loading}
             >
@@ -86,17 +136,26 @@ const DataFetcher: React.FC = () => {
 
             {error && <p className="error" role="alert">{error}</p>}
             {data && <PostItem post={data} />}
-            {!loading && data && (
-                <AutoTimer
-                    seconds={6}
-                    keyDependency={data.id}
-                    onExpire={() => {
-                        const nextId = id < 100 ? id + 1 : 1;
-                        setId(nextId);
-                    }}
-                />
-            )}
-                </div>
+
+            <div className="auto-settings">
+
+                <button className="auto-switch" onClick={toggleAuto}>
+                    {autoEnabled ? 'Вимкнути автоперехід?' : 'Увімкнути автоперехід?'}
+                </button>
+            </div>
+
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                pauseOnHover
+                draggable
+                closeButton
+                pauseOnFocusLoss
+            />
+        </div>
     );
 };
 

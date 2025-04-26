@@ -63,6 +63,7 @@ h1 {
   border-radius: 6px;
 }
 
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
