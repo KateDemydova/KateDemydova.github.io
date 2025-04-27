@@ -6,7 +6,7 @@ const usePostToast = (post: Post | null) => {
     useEffect(() => {
         if (post) {
             toast.dismiss();
-            toast.info(`Перехід на пост #${post.id}`, {
+            toast.info(`Пост #${post.id} Оновлення даних...`, {
                 autoClose: 2000,
                 closeButton: true,
                 draggable: true,
