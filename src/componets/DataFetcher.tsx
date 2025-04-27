@@ -7,7 +7,7 @@ import usePostToast from "../hooks/usePostToast";
 import useAutoSwitchToast from "../hooks/useAutoSwitchToast";
 import "./DataFetcher.css";
 
-const IDLE_TIMEOUT = 5000;
+const IDLE_TIMEOUT = 3000;
 
 const DataFetcher: React.FC = () => {
     const [id, setId] = useState<number>(1);
