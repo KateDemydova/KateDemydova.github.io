@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import { useIdleTimer } from "react-idle-timer";
+import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import PostItem from "./PostItem";
 import useFetchPost from "../hooks/useFetchPost";
 import usePostToast from "../hooks/usePostToast";
@@ -18,17 +18,22 @@ const DataFetcher: React.FC = () => {
     usePostToast(data);
     useAutoSwitchToast(autoEnabled);
 
-    useIdleTimer({
+    const { reset } = useIdleTimer({
         timeout: IDLE_TIMEOUT,
         onIdle: () => {
             if (autoEnabled) {
-                setId(prev => (prev < 100 ? prev + 1 : 1));
+                nextPost();
             }
         },
     });
 
-    const handleManualNext = () => {
+    const nextPost = () => {
         setId(prev => (prev < 100 ? prev + 1 : 1));
+        reset();
+    };
+
+    const handleManualNext = () => {
+        nextPost();
     };
 
     const toggleAuto = () => {
