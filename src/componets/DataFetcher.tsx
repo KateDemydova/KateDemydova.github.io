@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useIdleTimer } from "react-idle-timer";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import PostItem from "./PostItem";
@@ -22,23 +22,26 @@ const DataFetcher: React.FC = () => {
         timeout: IDLE_TIMEOUT,
         onIdle: () => {
             if (autoEnabled) {
-                nextPost();
+                setId(prev => (prev < 100 ? prev + 1 : 1));
             }
         },
+        startOnMount: false,
     });
 
-    const nextPost = () => {
-        setId(prev => (prev < 100 ? prev + 1 : 1));
-        reset();
-    };
+    useEffect(() => {
+        if (data) {
+            reset();
+        }
+    }, [data, reset]);
 
     const handleManualNext = () => {
-        nextPost();
+        setId(prev => (prev < 100 ? prev + 1 : 1));
     };
 
     const toggleAuto = () => {
         setAutoEnabled(prev => !prev);
     };
+
 
     return (
         <div className="data-container">
