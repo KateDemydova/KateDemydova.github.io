@@ -14,7 +14,7 @@ const MyButtonCount = () => {
     const [count, setCount] = useState(0);
 
     const handleClick = useCallback(() => {
-        console.log('Clicked');
+        console.log('Render MyButton');
     }, []);
 
     return (
