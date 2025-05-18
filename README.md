@@ -1,49 +1,48 @@
-# My React App
+# 🚀 HTTP Сервер на чистому Node.js
 
-## Короткий опис проекту
+## 📋 Опис
 
-Цей проект є базовим React додатком, створеним за допомогою Vite. 
-Він містить компоненти кнопки (з обробкою кліку) та текстового поля (з обробкою введення).
+Цей проєкт реалізує базовий HTTP сервер без сторонніх бібліотек (лише `http`, `url`, `querystring`), що обробляє `GET` і `POST` запити, повертає HTML-сторінки та здійснює валідацію даних форми.
 
-## Використані технології
+## Запуск сервера:
+node server.mjs
 
-* React
+За замовчуванням сервер слухає порт 3000.
 
-* Vite
+Для зміни порту:
 
-* TailwindCSS
+PORT=4000 node server.mjs
 
-## Як почати роботу
 
-1. Запуск проекту
+## Підтримувані маршрути
 
-git clone <Ссилка на репозиторій>
-cd my-react-app
+GET	/	Домашня сторінка
+GET	/about	Сторінка про нас
+GET	/contact	Контактна інформація
+POST	/submit	Обробка форми name + email
+*	/...	404 Not Found або 405
 
-2. Встановлення залежностей
+## Формат POST-запиту
+Content-Type: application/x-www-form-urlencoded
 
-npm install
+## Обробка помилок
+Тип помилки	Умова	Статус	Тіло
+404 Not Found	Невідомий маршрут	404	HTML "Page Not Found"
+400 Bad Request	Порожнє поле name або email	400	Invalid form data
+405 Not Allowed	Непідтримуваний HTTP метод	405	Method Not Allowed
+500 Server Error	Непередбачена помилка при обробці POST	500	HTML "Server Error"
 
-3. Запуск розробницького сервера
+## Тестування
+Сервер був протестований за допомогою:
 
-npm run dev
+✅ Postman
 
-## Структура проекту
+✅ Автоматизовані тести (наприклад, vitest, supertest)
 
-my-react-app/
-├── src/
-│   ├── components/
-│   │   ├── Button.jsx
-│   │   └── Input.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-├── README.md
-└── ...
+✅ Всі заголовки відповідають вимогам:
 
-## Деплоймент
+Content-Type: text/html; charset=utf-8
 
-Проект був розгорнутий на Netlify.
+Content-Length
 
-https://myjsreact.netlify.app/
+X-Content-Type-Options: nosniff
