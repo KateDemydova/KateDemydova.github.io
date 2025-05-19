@@ -1,49 +1,24 @@
-# My React App
+# Криптографічні утиліти на Node.js (SHA-256, PBKDF2)
+Цей проект містить набір функцій для генерації та перевірки хешів за допомогою сучасних криптографічних алгоритмів:
 
-## Короткий опис проекту
+* SHA-256 (одностороннє хешування)
 
-Цей проект є базовим React додатком, створеним за допомогою Vite. 
-Він містить компоненти кнопки (з обробкою кліку) та текстового поля (з обробкою введення).
+* PBKDF2 (хешування паролів з сіллю)
 
-## Використані технології
+* Перевірка введеного пароля по збереженому хешу
 
-* React
+## Функції
+🔐 generateHash(input: string): string
 
-* Vite
+Генерує SHA-256 хеш для довільного рядка.
 
-* TailwindCSS
+🔐 generatePasswordHash(password, salt, iterations?, keylen?, digest?): string
 
-## Як почати роботу
+Хешує пароль з використанням PBKDF2.
 
-1. Запуск проекту
+🔐 verifyPassword(inputPassword, storedHash, salt, iterations?, keylen?, digest?): boolean
 
-git clone <Ссилка на репозиторій>
-cd my-react-app
+Перевіряє, чи відповідає введений пароль збереженому хешу.
 
-2. Встановлення залежностей
 
-npm install
 
-3. Запуск розробницького сервера
-
-npm run dev
-
-## Структура проекту
-
-my-react-app/
-├── src/
-│   ├── components/
-│   │   ├── Button.jsx
-│   │   └── Input.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-├── README.md
-└── ...
-
-## Деплоймент
-
-Проект був розгорнутий на Netlify.
-
-https://myjsreact.netlify.app/
