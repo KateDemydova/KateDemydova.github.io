@@ -1,49 +1,79 @@
-# My React App
+# Express REST API Server
 
-## Короткий опис проекту
+Простий RESTful API-сервер, реалізований з використанням **Node.js** та **Express**, що дозволяє працювати з користувачами та статтями. Підтримує маршрути `GET`, `POST`, `PUT`, `DELETE` з відповідними валідаціями та обробкою помилок.
 
-Цей проект є базовим React додатком, створеним за допомогою Vite. 
-Він містить компоненти кнопки (з обробкою кліку) та текстового поля (з обробкою введення).
+---
 
-## Використані технології
+## 🔧 Технології
 
-* React
+| Назва        | Версія    | Призначення                        |
+|--------------|-----------|------------------------------------|
+| Node.js      | >=18.x    | Серверна платформа                 |
+| Express      | ^4.18.2   | HTTP-сервер та маршрути            |
+| Vitest       | ^1.5.0    | Модульне тестування                |
+| Supertest    | ^6.3.3    | HTTP-тести з Express               |
 
-* Vite
+---
 
-* TailwindCSS
+## 🗂 Структура проєкту
 
-## Як почати роботу
-
-1. Запуск проекту
-
-git clone <Ссилка на репозиторій>
-cd my-react-app
-
-2. Встановлення залежностей
-
-npm install
-
-3. Запуск розробницького сервера
-
-npm run dev
-
-## Структура проекту
-
-my-react-app/
+.
+├── controllers/
+│ ├── userController.mjs
+│ └── articleController.mjs
+├── routes/
+│ ├── users.mjs
+│ └── articles.mjs
+├── utils/
+│ └── responseHelpers.mjs
 ├── src/
-│   ├── components/
-│   │   ├── Button.jsx
-│   │   └── Input.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
+│ └── server.mjs
+├── test/
+│ └── task1.test.js
 ├── package.json
-├── README.md
-└── ...
+└── README.md
 
-## Деплоймент
+📌 API Опис
+🔹 Root
+GET / → 200 OK → "Get root route"
 
-Проект був розгорнутий на Netlify.
+🔹 Users
+GET /users → 200 OK
 
-https://myjsreact.netlify.app/
+POST /users → 201 Created (тіло: { name: "..." })
+
+GET /users/:userId → 200 OK або 404 Not Found
+
+PUT /users/:userId → 200 OK (тіло: { name: "..." }) або 400 Bad Request
+
+DELETE /users/:userId → 204 No Content або 404 Not Found
+
+🔹 Articles
+GET /articles → 200 OK
+
+POST /articles → 201 Created (тіло: { title: "..." })
+
+GET /articles/:articleId → 200 OK або 404 Not Found
+
+PUT /articles/:articleId → 200 OK (тіло: { title: "..." }) або 400 Bad Request
+
+DELETE /articles/:articleId → 204 No Content або 404 Not Found
+
+⚠️ Обробка помилок
+Невідомі маршрути → 404 Not Found
+
+Глобальна помилка (несподіване виключення) → 500 Internal Server Error
+
+## Сценарій використання
+Надіслати GET /users — отримаєш "Get users route".
+
+Створити нового користувача — POST /users { name: "..." }.
+
+Отримати користувача за ID — GET /users/123.
+
+Оновити користувача — PUT /users/123 { name: "Updated" }.
+
+Видалити користувача — DELETE /users/123.
+
+Те ж саме для /articles.
+
