@@ -12,12 +12,9 @@ export function checkUserAccess(req, res, next) {
 }
 
 export function validUserData(req, res, next) {
-  const { name, email } = req.body;
+  const { name } = req.body;
 
-  if (
-    !name || typeof name !== 'string' || name.trim() === '' ||
-    !email || typeof email !== 'string' || email.trim() === ''
-  ) {
+  if (!name || typeof name !== 'string' || name.trim() === '') {
     return response.badRequest(res, 'Bad Request');
   }
 

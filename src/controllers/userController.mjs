@@ -1,9 +1,6 @@
-import { response } from '../utils/responseHelpers.mjs';
-
-const VALID_USER_IDS = ['1', '2', '123'];
-
 export function getAllUsers(req, res) {
-  response.ok(res, 'Get users route');
+  const userList = [...users.entries()].map(([id, { name }]) => ({ id, name }));
+  response.ok(res, userList);
 }
 
 export function postAllUsers(req, res) {
@@ -13,18 +10,21 @@ export function postAllUsers(req, res) {
     return response.badRequest(res, 'Bad Request');
   }
 
-  response.created(res, 'Post users route');
+  const id = String(Date.now());
+  users.set(id, { name });
+
+  response.created(res, { id, name });
 }
 
 export function getUserById(req, res) {
   const { userId } = req.params;
-  const exists = VALID_USER_IDS.includes(userId);
 
-  if (!exists) {
+  const user = users.get(userId);
+  if (!user) {
     return response.notFound(res, 'Not Found');
   }
 
-  response.ok(res, `Get user by Id route: ${userId}`);
+  response.ok(res, { id: userId, ...user });
 }
 
 export function putUserById(req, res) {
@@ -35,21 +35,24 @@ export function putUserById(req, res) {
     return response.badRequest(res, 'Bad Request');
   }
 
-  const exists = VALID_USER_IDS.includes(userId);
-  if (!exists) {
+  const user = users.get(userId);
+  if (!user) {
     return response.notFound(res, 'Not Found');
   }
 
-  response.ok(res, `Put user by Id route: ${userId}`);
+  users.set(userId, { name });
+
+  response.ok(res, { id: userId, name });
 }
 
 export function deleteUser(req, res) {
   const { userId } = req.params;
-  const exists = VALID_USER_IDS.includes(userId);
 
+  const exists = users.has(userId);
   if (!exists) {
     return response.notFound(res, 'Not Found');
   }
 
+  users.delete(userId);
   response.noContent(res);
 }

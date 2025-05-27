@@ -1,7 +1,8 @@
 {
   "name": "express-hw01-tests",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.mjs",
+  "type": "module",
   "license": "MIT",
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",

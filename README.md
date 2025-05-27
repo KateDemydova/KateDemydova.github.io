@@ -1,18 +1,17 @@
 # Завдання
 
-Розширення існуючого Express сервера за допомогою мідлварів.
+Розширення існуючого Express-сервера за допомогою мідлварів.
 
 ## Технології
 
 - **Node.js**
 - **Express.js**
 - **ES Modules**
-- **UUID** для генерації ID
-- **Postman** (для ручового тестування)
+- **Postman** (для ручного тестування)
 
-## Структура проекту
+## Структура проєкту
 
-project/
+src/
 ├── controllers/
 │ ├── articleController.mjs
 │ └── userController.mjs
@@ -21,8 +20,8 @@ project/
 │ └── users.mjs
 ├── middlewere/
 │ ├── checkArticlePermissions.mjs
-│ ├── userValidation.mjs
-│ └── requestLogger.mjs
+│ ├── requestLogger.mjs
+│ └── userValidation.mjs
 ├── mock/
 │ └── mockAuth.mjs
 ├── routes/
@@ -33,110 +32,87 @@ project/
 │ └── responseHelpers.mjs
 ├── app.mjs
 ├── server.mjs
-└── README.md
+└── ASSIGNMENT.md
 
-## Розгортання проекту
+## Розгортання проєкту
 
-Сторонні залежності
-Встановлюється через:
+### Встановлення залежностей
 
 npm install
-+
+Зовнішні залежності:
+
 express
-+
-uuid
 
-## 🌐 API Маршрути
+## API Маршрути
+GET /
+Мідлвар: requestLogger
 
-### `GET /`
-- Мідлвар: `requestLogger`
-- Відповідь: `Get root route`
+Відповідь: Get root route
 
----
+/users
+GET /users
+Мідлвар: mockAuth (глобально застосовується)
 
-### `/users`
+Відповідь: [{ id, name }]
 
-#### `GET /users`
-- Мідлвари: `mockAuth`, `checkUserAccess`
-- Повертає список користувачів: `[{ id, name }]`
+POST /users
+Мідлвар: validUserData
 
-#### `POST /users`
-- Мідлвари: `validUserData`
-- Тіло: `{ "name": "Kate" }`
-- Відповідь: `{ id, name }`
+Тіло: { "name": "Kate" }
+Відповідь: { id, name }
 
----
+/users/:userId
+GET /users/:userId
+Мідлвари: mockAuth, checkUserAccess
+Відповідь: { id, name }
 
-### `/users/:userId`
+PUT /users/:userId
+Мідлвари: checkUserAccess, validUserData
+Оновлення користувача
 
-#### `GET /users/:userId`
-- Мідлвари: `mockAuth`, `checkUserAccess`
-- Відповідь: `{ id, name }`
+DELETE /users/:userId
+Мідлвар: checkUserAccess
+Відповідь: 204 No Content
 
-#### `PUT /users/:userId`
-- Мідлвари: `checkUserAccess`, `validUserData`
-- Оновлення користувача
+/articles
+GET /articles
+Відповідь: Get articles route
 
-#### `DELETE /users/:userId`
-- Мідлвар: `checkUserAccess`
-- Відповідь: `204 No Content`
+POST /articles
+Тіло: { "title": "Article Title" }
+Відповідь: Post articles route
 
----
+/articles/:articleId
+GET /articles/:articleId
+Відповідь: Get article by Id route: <id> або 404
 
-### `/articles`
+PUT /articles/:articleId
+Мідлвар: checkArticlePermissions
+Оновлення статті
 
-#### `GET /articles`
-- Повертає список: `[{ id, title }]`
+DELETE /articles/:articleId
+Мідлвар: checkArticlePermissions
+Видалення статті
 
-#### `POST /articles`
-- Тіло: `{ "title": "Article Title" }`
-- Відповідь: `{ id, title }`
+## Мідлвари
 
----
-
-### `/articles/:articleId`
-
-#### `GET /articles/:articleId`
-- Повертає `{ id, title }` або `404`
-
-#### `PUT /articles/:articleId`
-- Мідлвар: `checkArticlePermissions`
-- Оновлює статтю
-
-#### `DELETE /articles/:articleId`
-- Мідлвар: `checkArticlePermissions`
-- Видаляє статтю
-
----
-
-## 🛡 Мідлвари
-
-| Назва | Призначення |
-|-------|-------------|
-| `requestLogger` | Логування всіх запитів |
-| `mockAuth` | Додає фейкового користувача до `req.user` |
-| `checkUserAccess` | Перевірка, чи користувач має доступ до ID |
-| `checkArticlePermissions` | Перевірка, чи користувач — власник статті |
-| `validUserData` | Валідація тіла запиту користувача |
-
----
+Назва	                Призначення
+requestLogger	        Логування всіх вхідних запитів
+mockAuth	            Додає фейкового користувача до req.user
+checkUserAccess	        Перевірка, чи користувач має доступ до ID
+checkArticlePermissions	Перевірка, чи користувач є власником статті
+validUserData	        Валідація тіла запиту користувача (name)
 
 ## Тестові дані
+У файлах data/users.mjs та data/articles.mjs зберігаються Map з попередньо створеними записами:
 
-У файлах `data/users.mjs` та `data/articles.mjs` зберігаються `Map`:
-
-users.set('123', { name: 'Test User' });
-articles.set('456', { title: 'Test Article', ownerId: '123' });
+users.set('1', { name: 'Test User 1' });
+articles.set('123', { title: 'Test Article', ownerId: '1' });
 
 
 ## Виконано
-
- MVC архітектура
-
- RESTful API
-
- Мідлвари для логування, авторизації, валідації
-
- Тестові дані
-
- Глобальні обробники помилок (404, 500)
+✅ MVC-архітектура
+✅ RESTful API
+✅ Мідлвари для логування, авторизації, валідації
+✅ Тестові дані
+✅ Глобальні обробники помилок (404, 500)

@@ -1,5 +1,5 @@
 import { response } from "../utils/responseHelpers.mjs";
-import { articles } from '../data/fakeDB.mjs';
+import { articles } from '../data/articles.mjs';
 
 export function getAllArticles(req, res) {
   response.ok(res, 'Get articles route');
