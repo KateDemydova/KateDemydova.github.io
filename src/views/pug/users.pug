@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title Список користувачів
+  body
+    h1 Список користувачів
+    ul
+      each user in users
+        li
+          a(href=`/users/${user.id}`)= user.name

@@ -1,49 +1,97 @@
-# My React App
+# Express Server: Користувачі та Статті
 
-## Короткий опис проекту
+Цей сервер реалізований на основі Node.js і Express.js та демонструє обробку маршрутів для користувачів і статей із використанням шаблонізаторів **Pug** та **EJS**.
 
-Цей проект є базовим React додатком, створеним за допомогою Vite. 
-Він містить компоненти кнопки (з обробкою кліку) та текстового поля (з обробкою введення).
+## 📦 Встановлення залежності:
 
-## Використані технології
-
-* React
-
-* Vite
-
-* TailwindCSS
-
-## Як почати роботу
-
-1. Запуск проекту
-
-git clone <Ссилка на репозиторій>
-cd my-react-app
-
-2. Встановлення залежностей
-
+```bash
 npm install
+```
+## Запуск сервера
 
-3. Запуск розробницького сервера
-
+```bash
 npm run dev
+```
 
-## Структура проекту
+## Шаблони
 
-my-react-app/
+Pug: views/pug/ — для /users, /users/:userId
+EJS: views/ejs/ — для /articles, /articles/:articleId
+
+## Маршрути
+👤 /users — Pug
+Метод	Шлях	            Опис
+GET	/users	                HTML-сторінка зі списком користувачів
+GET	/users/:userId	        Сторінка конкретного користувача
+POST	/users	            Створення користувача (name)
+PUT	/users/:userId	        Оновлення імені користувача
+DELETE	/users/:userId	    Видалення користувача
+
+Валідація name, перевірка доступу через middleware checkUserAccess.
+
+
+/articles — EJS
+Метод	Шлях	                 Опис
+GET	/articles	                HTML-сторінка зі списком статей
+GET	/articles/:articleId	    Сторінка конкретної статті
+POST	/articles	            Створення статті (title)
+PUT	/articles/:articleId	    Оновлення статті
+DELETE	/articles/:articleId	Видалення статті
+
+Захист змін через middleware checkArticlePermissions.
+
+## Структура проєкту 
+express_3
+
+│   ├── controllers/
+│   │   ├── userController.mjs
+│   │   └── articleController.mjs
+│   ├── data/
+│   │   ├── users.mjs
+│   │   └── articles.mjs
+│   ├── middlewere/
+│   │   ├── mockAuth.mjs
+│   │   ├── userValidation.mjs
+│   │   └── checkArticlePermissions.mjs
+│   ├── routes/
+│   │   ├── index.mjs
+│   │   ├── users.mjs
+│   │   └── articles.mjs
+│   └── views/
+│       ├── pug/
+│       │   ├── users.pug
+│       │   └── user.pug
+│       └── ejs/
+│           ├── articles.ejs
+│           └── article.ejs
 ├── src/
-│   ├── components/
-│   │   ├── Button.jsx
-│   │   └── Input.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
+│   └── server.mjs
 ├── package.json
-├── README.md
-└── ...
+└── README.md
 
-## Деплоймент
+## Залежності
+express ^5.1.0
 
-Проект був розгорнутий на Netlify.
+pug ^3.0.3
 
-https://myjsreact.netlify.app/
+ejs ^3.1.10
+
+typescript ^5.8.3 (для типізації або майбутнього переходу)
+
+vitest ^3.1.1 (тести)
+
+nodemon ^3.1.10 (розробка)
+
+supertest ^7.1.0 (тести HTTP-маршрутів)
+
+## Тестування через Postman
+
+GET /users, GET /articles — повертають HTML-сторінки
+
+POST /users, POST /articles — приймають JSON (Content-Type: application/json)
+
+У відповідь — HTML або JSON (в залежності від маршруту)
+
+
+
+
