@@ -1,6 +1,7 @@
 # Express Server: Користувачі та Статті
 
-Цей сервер реалізований на основі Node.js і Express.js та демонструє обробку маршрутів для користувачів і статей із використанням шаблонізаторів **Pug** та **EJS**.
+Node.js + Express.js сервер, що підтримує REST API для користувачів та статей. 
+Додатково реалізовані шаблони EJS (статті) та Pug (користувачі).
 
 ## 📦 Встановлення залежності:
 
@@ -13,36 +14,67 @@ npm install
 npm run dev
 ```
 
-## Шаблони
+API Роути
 
-Pug: views/pug/ — для /users, /users/:userId
-EJS: views/ejs/ — для /articles, /articles/:articleId
+⭐ GET /
 
-## Маршрути
-👤 /users — Pug
-Метод	Шлях	            Опис
-GET	/users	                HTML-сторінка зі списком користувачів
-GET	/users/:userId	        Сторінка конкретного користувача
-POST	/users	            Створення користувача (name)
-PUT	/users/:userId	        Оновлення імені користувача
-DELETE	/users/:userId	    Видалення користувача
+Кореневий маршрут. Відповідь: текстове повідомлення "API is working".
 
-Валідація name, перевірка доступу через middleware checkUserAccess.
+👤 /users [Pug]
+
+Метод       Шлях                    Опис
+
+GET         /users                  HTML-сторінка зі списком користувачів
+
+GET         /users/:userId          HTML деталі користувача
+
+POST        /users                  Створити користувача { name }
+
+PUT         /users/:userId          Оновити name
+
+DELETE      /users/:userId          Видалити користувача
+
+Middleware: checkUserAccess, validUserData
+
+📄 /articles [EJS]
+
+Метод       Шлях                        Опис
+
+GET         /articles                   HTML-список статей
+
+GET         /articles/:articleId        HTML-деталі статті
+
+POST        /articles                   Створити статтю { title }
+
+PUT         /articles/:articleId        Оновити title
+
+DELETE      /articles/:articleId        Видалити статтю
+
+Middleware: checkArticlePermissions, validArticleData
 
 
-/articles — EJS
-Метод	Шлях	                 Опис
-GET	/articles	                HTML-сторінка зі списком статей
-GET	/articles/:articleId	    Сторінка конкретної статті
-POST	/articles	            Створення статті (title)
-PUT	/articles/:articleId	    Оновлення статті
-DELETE	/articles/:articleId	Видалення статті
+📓 Middleware
 
-Захист змін через middleware checkArticlePermissions.
+✉ mockAuth
+Емуляція авторизованого користувача: додає req.user = { id: '123' }
+
+🔍 requestLogger (опціонально)
+Логування HTTP-методу та URL кожного запиту
+
+🔒 validUserData
+Валідація: name — обов'язковий рядок
+
+🔒 validArticleData (рекомендовано)
+Валідація: title — обов'язковий рядок
+
 
 ## Структура проєкту 
 express_3
 
+│├── package.json
+├── src/
+│   ├── app.mjs
+│   ├── server.mjs
 │   ├── controllers/
 │   │   ├── userController.mjs
 │   │   └── articleController.mjs
@@ -51,8 +83,9 @@ express_3
 │   │   └── articles.mjs
 │   ├── middlewere/
 │   │   ├── mockAuth.mjs
+│   │   ├── requestLogger.mjs
 │   │   ├── userValidation.mjs
-│   │   └── checkArticlePermissions.mjs
+│   │   └── validArticleData.mjs
 │   ├── routes/
 │   │   ├── index.mjs
 │   │   ├── users.mjs
@@ -64,33 +97,42 @@ express_3
 │       └── ejs/
 │           ├── articles.ejs
 │           └── article.ejs
-├── src/
-│   └── server.mjs
-├── package.json
-└── README.md
 
-## Залежності
+## Технології
+
 express ^5.1.0
 
-pug ^3.0.3
+ejs / pug
 
-ejs ^3.1.10
+vitest / supertest
 
-typescript ^5.8.3 (для типізації або майбутнього переходу)
+nodemon
 
-vitest ^3.1.1 (тести)
+typescript (опціонально)
 
-nodemon ^3.1.10 (розробка)
 
-supertest ^7.1.0 (тести HTTP-маршрутів)
+## API приклади (Postman)
 
-## Тестування через Postman
+* GET /users, GET /articles — HTML-сторінки
 
-GET /users, GET /articles — повертають HTML-сторінки
+* POST /articles
 
-POST /users, POST /articles — приймають JSON (Content-Type: application/json)
+{
+"title": "Нова стаття"
+}
 
-У відповідь — HTML або JSON (в залежності від маршруту)
+* PUT /articles/123
+
+{
+"title": "Оновлена назва"
+}
+
+❌ Якщо title не передано:
+
+400 Bad Request
+Field "title" is required and must be a string
+
+
 
 
 

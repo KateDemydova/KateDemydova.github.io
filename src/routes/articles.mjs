@@ -5,18 +5,19 @@ import { getAllArticles,
   putArticlesById,
   deleteArticlesById} from "../controllers/articleController.mjs";
 import {checkArticlePermissions} from "../middlewere/checkArticlePermissions.mjs";
+import {validArticleData} from "../middlewere/validArticleData.mjs";
 
 const router = express.Router();
 
 router
   .route('/')
   .get(getAllArticles)
-  .post(postAllArticles);
+  .post(validArticleData, postAllArticles);
 
 router
   .route('/:articleId')
   .get(getArticlesById)
-  .put(checkArticlePermissions, putArticlesById)
+  .put(validArticleData, checkArticlePermissions, putArticlesById)
   .delete(checkArticlePermissions, deleteArticlesById);
 
 export default router;

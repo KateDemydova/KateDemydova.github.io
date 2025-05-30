@@ -9,12 +9,13 @@ export function getAllArticles(req, res) {
 export function postAllArticles(req, res) {
   const { title } = req.body;
 
-  if (!title || typeof title !== 'string') {
-    return response.badRequest(res, 'Bad Request');
-  }
+  const id = String(Date.now());
+  const article = { title };
+  articles.set(id, article);
 
-  response.created(res, 'Post articles route');
+  response.created(res, { id, ...article });
 }
+
 
 export function getArticlesById(req, res) {
   const { articleId } = req.params;
@@ -32,26 +33,24 @@ export function getArticlesById(req, res) {
 export function putArticlesById(req, res) {
   const { articleId } = req.params;
   const { title } = req.body;
-  const article = articles.get(articleId);
 
+  const article = articles.get(articleId);
   if (!article) {
     return response.notFound(res, 'Not Found');
   }
 
-  if (!title || typeof title !== 'string') {
-    return response.badRequest(res, 'Bad Request');
-  }
-
-  response.ok(res, `Put article by Id route: ${articleId}`);
+  articles.set(articleId, { title });
+  response.ok(res, { id: articleId, title });
 }
 
 export function deleteArticlesById(req, res) {
   const { articleId } = req.params;
-  const article = articles.get(articleId);
 
+  const article = articles.get(articleId);
   if (!article) {
     return response.notFound(res, 'Not Found');
   }
 
+  articles.delete(articleId);
   response.noContent(res);
 }
