@@ -80,31 +80,60 @@ GET /theme
 
 ✅ Захист приватних маршрутів через middleware
 
-Маршрути:
-POST /register
+## Маршрути
+🔐 Аутентифікація (/register, /login, /profile)
+Method	Route	Auth	Description
+POST	/register	❌	Реєстрація користувача + встановлення JWT
+POST	/login	❌	Вхід користувача + встановлення JWT
+GET	/profile	✅	Захищений маршрут: повертає req.user
 
-{ "email": "kate@example.com", "password": "123456" }
+## Токен
+JWT зберігається в cookie з прапором httpOnly.
 
-POST /login
-Встановлює JWT cookie
+Користувачі (/users)
+Method	Route	Auth	Опис
+GET	/users	❌	Список користувачів (PUG-шаблон)
+POST	/users	❌	Створити користувача (JSON)
+GET	/users/:id	✅	Деталі користувача (PUG)
+PUT	/users/:id	✅	Оновити ім’я користувача
+DELETE	/users/:id	✅	Видалити користувача
 
-GET /profile
-Захищений маршрут. Потрібен валідний токен у cookie.
+## Middleware:
+requireAuth – захист GET/PUT/DELETE
 
-Мідлвар requireAuth.mjs:
-Зчитує cookie token
+validUserData – перевірка поля name
 
-Перевіряє автентичність через jsonwebtoken
+checkUserAccess – дозволяє редагувати лише власний профіль
 
-Якщо токен невалідний — повертає 401
+validArticleData – перевірка поля title
 
-## Безпека
+checkArticlePermissions – перевірка власника статті
 
-JWT зберігається у httpOnly cookie
+## Статті (/articles)
+Method	Route	Auth	Опис
+GET	/articles	✅	Список статей (EJS-шаблон)
+POST	/articles	✅	Створити статтю
+GET	/articles/:id	✅	Перегляд статті (EJS)
+PUT	/articles/:id	✅	Оновити заголовок статті
+DELETE	/articles/:id	✅	Видалити статтю
 
-Використовується sameSite: 'lax'
+## Теми (/theme)
+Method	Route	Auth	Опис
+GET	/theme	❌	Отримати тему з cookie
+POST	/theme	❌	Зберегти обрану тему в cookie
 
-Паролі у демонстраційній реалізації не хешуються (але бажано використовувати bcrypt)
+## Використання cookie:
+поле theme (light або dark)
+
+зберігається на 30 днів
+
+## Favicon
+Додано favicon.ico у public/
+
+Встановлено через serve-favicon
+
+У шаблонах (PUG, EJS) додано тег:
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
 ## Тестування через Postman
 
@@ -122,6 +151,9 @@ Body: { "email": "test@mail.com", "password": "1234" }
 Отримання теми:
 GET /theme
 
+🔒 Авторизація повністю базується на JWT + cookies
+🧩 Шаблони: PUG для /users, EJS для /articles
+🍪 Теми та токени зберігаються в cookie
 
 ## Залежності
 
@@ -134,3 +166,5 @@ cookie-parser
 jsonwebtoken
 
 nodemon (dev)
+
+
