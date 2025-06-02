@@ -1,49 +1,154 @@
-# My React App
+Проєкт Express.js: Аутентифікація, Теми, JWT, Passport
+## Опис
+Це сервер на Express.js, який реалізує:
 
-## Короткий опис проекту
+Аутентифікацію користувача через JWT та Passport.js.
 
-Цей проект є базовим React додатком, створеним за допомогою Vite. 
-Він містить компоненти кнопки (з обробкою кліку) та текстового поля (з обробкою введення).
+Збереження улюбленої теми оформлення сайту через Cookies.
 
-## Використані технології
+Захист приватних маршрутів за допомогою сесій або JWT.
 
-* React
+Роботу з шаблонами PUG та EJS.
 
-* Vite
+Обробку статичних ресурсів, включаючи favicon.
 
-* TailwindCSS
+src/
+├── app.mjs                  
+├── config/                   
+│   └── passport.mjs          
+│
+├── controllers/              
+│   ├── articleController.mjs
+│   ├── authController.mjs
+│   ├── themeController.mjs
+│   └── userController.mjs
+│
+├── data/                     
+│   ├── articles.mjs
+│   └── users.mjs
+│
+├── middleware/               
+│   ├── checkArticlePermissions.mjs
+│   ├── requireAuth.mjs
+│   ├── requestLogger.mjs
+│   ├── userValidation.mjs
+│   └── validArticleData.mjs
+│
+├── mock/                     
+│   └── mockAuth.mjs
+│
+├── public/                   
+│   └── favicon.ico
+│
+├── routes/                  
+│   ├── articles.mjs
+│   ├── auth.mjs             
+│   ├── authPassport.mjs      
+│   ├── index.mjs             
+│   ├── protected.mjs         
+│   ├── theme.mjs
+│   └── users.mjs
+│
+├── utils/                    
+│   ├── jwtHelpers.mjs
+│   └── responseHelpers.mjs
+│
+├── views/                   
+│   ├── ejs/                  
+│   └── pug/                  
+└──README.md
 
-## Як почати роботу
-
-1. Запуск проекту
-
-git clone <Ссилка на репозиторій>
-cd my-react-app
-
-2. Встановлення залежностей
+## Встановлення
 
 npm install
 
-3. Запуск розробницького сервера
+## Запуск
 
-npm run dev
+node server.mjs
 
-## Структура проекту
+## JWT-автентифікація
+* Реєстрація
 
-my-react-app/
-├── src/
-│   ├── components/
-│   │   ├── Button.jsx
-│   │   └── Input.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-├── README.md
-└── ...
+POST /register
+Content-Type: application/json
+{
+"email": "test@example.com",
+"password": "123456"
+}
 
-## Деплоймент
+* Логін
 
-Проект був розгорнутий на Netlify.
+POST /login
+Content-Type: application/json
+{
+"email": "test@example.com",
+"password": "123456"
+}
 
-https://myjsreact.netlify.app/
+* Профіль
+
+GET /profile
+Вимагає наявності токена у cookies
+
+## Passport-сесійна автентифікація
+* Реєстрація
+
+POST /register
+Content-Type: application/json
+{
+"email": "test@example.com",
+"password": "123456"
+}
+
+* Логін
+
+POST /login
+
+* Профіль
+
+GET /profile
+
+* Вихід
+
+GET /logout
+
+## Захищений маршрут
+
+GET /protected
+
+## Тема оформлення
+Зберегти тему
+
+POST /theme
+Content-Type: application/json
+{
+"theme": "light" | "dark"
+}
+
+Отримати тему
+
+GET /theme
+
+## Шаблони
+Підтримуються EJS та PUG.
+
+Favicon підключено через:
+
+<link rel="icon" href="/favicon.ico">
+
+## Cookies та Сесії
+Cookies використовуються для збереження теми та JWT токенів.
+
+Сесії створюються через express-session, з параметрами:
+
+httpOnly: true
+
+secure: false (змінити на true у продакшені)
+
+sameSite: 'lax'
+
+## Вимоги
+Node.js ≥ 16
+
+npm ≥ 8
+
