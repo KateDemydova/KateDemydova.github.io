@@ -1,0 +1,7 @@
+db.users.find().pretty()
+use users
+use admin
+db.getUser("myuser")
+use admin
+db.users.find().pretty()
+use users
