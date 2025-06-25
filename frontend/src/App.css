@@ -1,0 +1,408 @@
+#root {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    --color-primary: #4f46e5;
+    --color-bg: #f9f9f9;
+    --color-border: #d1d5db;
+    --color-text: #111827;
+}
+
+.logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
+
+.card {
+    padding: 2em;
+}
+
+.read-the-docs {
+    color: #888;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+.container {
+    max-width: 1350px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.form h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.label {
+    margin: 15px 15px 5px 0;
+    text-align: left;
+    font-weight: bold;
+}
+
+.input-item {
+    width: 100%;
+    font-size: 1em;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-item:hover {
+    background-color: #f1efee;
+    border-color: #6c757d;
+}
+
+.react-tel-input {
+    width: 100%;
+    position: relative;
+}
+
+.react-tel-input .form-control {
+    width: 100% !important;
+    padding-left: 60px !important;
+    font-size: 1em;
+    height: 42px !important;
+    border: 2px solid #ccc !important;
+    border-radius: 4px !important;
+    box-sizing: border-box;
+}
+
+.react-tel-input .form-control:hover {
+    background-color: #f1efee;
+    border-color: #6c757d;
+}
+
+.react-tel-input .flag-dropdown {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border: 2px solid #ccc;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    background: #fff;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+.button {
+    padding: 10px;
+    background-color: lightgrey;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.button:hover {
+    background-color: darkgray;
+    color: white;
+}
+
+select {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    height: 42px;
+}
+
+.add-client,
+.payment {
+    display: inline-block;
+    margin: 40px auto 0;
+    padding: 12px 24px;
+    background-color: #d3d3d3;
+    color: black;
+    border-radius: 6px;
+    list-style: none;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-link:hover {
+    background-color: darkgray;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.client-page {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .client-page {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+.sidebar-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 220px;
+    min-width: 200px;
+}
+
+.client-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.action-button {
+    padding: 0.5rem 1rem;
+    background-color: #d3d3d3;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.2s;
+    color: black;
+}
+
+.action-button:hover,
+.action-button.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.delete-button {
+    margin-left: 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.input-search {
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 2px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 1em;
+    max-width: 200px;
+}
+
+.input-search:hover {
+    background-color: #f1efee;
+    border-color: #6c757d;
+}
+
+.client-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    transition: 0.2s ease;
+    width: calc(300px - 30px);
+}
+
+
+.client-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-actions {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.client-card .status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.875rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.status-active {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-inactive {
+    background-color: #f3f4f6;
+    color: #6b7280;
+}
+
+.status-awaiting_payment {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-debtor {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.edit-button {
+    text-decoration: none;
+    color: black;
+}
+
+.back {
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #2d3651;
+}
+
+h3 {
+    text-align: center;
+}
+
+.payment-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.payment-card {
+    width: 100%;
+    max-width: 300px;
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+    .payment-card {
+        width: 100%;
+
+    }
+}
+
+@media (min-width: 1024px) {
+    .payment-card {
+        width: 100%;
+
+    }
+}
+
+.payment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.load-more-button {
+    background-color: #d3d3d3;
+    color: black;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.load-more-button:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+
+
+
+
